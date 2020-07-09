@@ -116,7 +116,7 @@ redirect_from:
  version 8.0.x onwards. Therefore, it is recommended to use a MySQL driver
  version greater than 8.0.x.<br><br>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/mysql/index.html">MySQL module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/mysql/index.html">MySQL module</a>.</p>
 </p>
 
                         </td>
@@ -249,7 +249,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/mysql;
 import ballerina/sql;
 </code></pre></div>
@@ -263,7 +263,7 @@ import ballerina/sql;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>string dbUser = &quot;root&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>string dbUser = &quot;root&quot;;
 string dbPassword = &quot;Test@123&quot;;
 string dbName = &quot;MYSQL_BBE_EXEC&quot;;
 </code></pre></div>
@@ -286,7 +286,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function initializeDatabase() returns sql:Error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>function initializeDatabase() returns sql:Error? {
 </code></pre></div>
 
                                 </td>
@@ -298,7 +298,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    mysql:Client mysqlClient = check new (user = dbUser, password = dbPassword);
+                                    <div class="highlight"><pre><code class=language-ballerina>    mysql:Client mysqlClient = check new (user = dbUser, password = dbPassword);
 </code></pre></div>
 
                                 </td>
@@ -317,7 +317,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ExecutionResult result =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ExecutionResult result =
         check mysqlClient-&gt;execute(&quot;CREATE DATABASE IF NOT EXISTS &quot; + dbName);
     io:println(&quot;Database created. &quot;);
 </code></pre></div>
@@ -339,7 +339,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    check mysqlClient.close();
+                                    <div class="highlight"><pre><code class=language-ballerina>    check mysqlClient.close();
 </code></pre></div>
 
                                 </td>
@@ -358,7 +358,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>}
 </code></pre></div>
 
                                 </td>
@@ -370,7 +370,7 @@ string dbName = &quot;MYSQL_BBE_EXEC&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function initializeTable(mysql:Client mysqlClient)
+                                    <div class="highlight"><pre><code class=language-ballerina>function initializeTable(mysql:Client mysqlClient)
 returns sql:Error? {
 </code></pre></div>
 
@@ -383,7 +383,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ExecutionResult result =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ExecutionResult result =
         check mysqlClient-&gt;execute(&quot;DROP TABLE IF EXISTS Customers&quot;);
     io:println(&quot;Drop table executed: &quot;, result);
 </code></pre></div>
@@ -405,7 +405,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    result = check mysqlClient-&gt;execute(&quot;CREATE TABLE IF NOT EXISTS Customers&quot; +
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = check mysqlClient-&gt;execute(&quot;CREATE TABLE IF NOT EXISTS Customers&quot; +
         &quot;(customerId INTEGER NOT NULL AUTO_INCREMENT, firstName VARCHAR(300), &quot; +
         &quot;lastName VARCHAR(300), registrationID INTEGER UNIQUE, &quot; + 
         &quot;creditLimit DOUBLE, country VARCHAR(300), PRIMARY KEY (customerId))&quot;);
@@ -429,7 +429,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>}
 </code></pre></div>
 
                                 </td>
@@ -441,7 +441,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function insertSingleRecord(mysql:Client mysqlClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function insertSingleRecord(mysql:Client mysqlClient) {
 </code></pre></div>
 
                                 </td>
@@ -453,7 +453,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string firstName = &quot;Camellia&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string firstName = &quot;Camellia&quot;;
     string lastName = &quot;Johns&quot;;
     int registrationId = 1;
     float creditLimit = 5000.75;
@@ -481,7 +481,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ExecutionResult|sql:Error result =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ExecutionResult|sql:Error result =
         mysqlClient-&gt;execute(insertQuery);
 </code></pre></div>
 
@@ -501,7 +501,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (result is sql:ExecutionResult) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (result is sql:ExecutionResult) {
         io:println(&quot;\nInsert success, generated Id: &quot;, result.lastInsertId);
     } else {
         io:println(&quot;Error occurred: &quot;, result);
@@ -518,7 +518,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function insertMultipleRecords(mysql:Client mysqlClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function insertMultipleRecords(mysql:Client mysqlClient) {
 </code></pre></div>
 
                                 </td>
@@ -530,7 +530,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var insertRecords = [
+                                    <div class="highlight"><pre><code class=language-ballerina>    var insertRecords = [
         {firstName: &quot;Peter&quot;, lastName: &quot;Stuart&quot;, registrationID: 2,
                                     creditLimit: 5000.75, country: &quot;USA&quot;},
         {firstName: &quot;Stephanie&quot;, lastName: &quot;Mike&quot;, registrationID: 3,
@@ -556,7 +556,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ParameterizedQuery[] insertQueries =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ParameterizedQuery[] insertQueries =
         from var data in insertRecords
             select  `INSERT INTO Customers
                 (firstName, lastName, registrationID, creditLimit, country)
@@ -581,7 +581,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ExecutionResult[]|sql:Error result =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ExecutionResult[]|sql:Error result =
         mysqlClient-&gt;batchExecute(insertQueries);
 </code></pre></div>
 
@@ -601,7 +601,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (result is sql:ExecutionResult[]) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (result is sql:ExecutionResult[]) {
         int[] generatedIds = [];
         foreach var summary in result {
             generatedIds.push(&lt;int&gt; summary.lastInsertId);
@@ -622,7 +622,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -634,7 +634,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:Error? err = initializeDatabase();
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:Error? err = initializeDatabase();
 </code></pre></div>
 
                                 </td>
@@ -653,7 +653,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (err is ()) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (err is ()) {
 </code></pre></div>
 
                                 </td>
@@ -665,7 +665,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        mysql:Client|sql:Error mysqlClient = new (user = dbUser,
+                                    <div class="highlight"><pre><code class=language-ballerina>        mysql:Client|sql:Error mysqlClient = new (user = dbUser,
             password = dbPassword, database = dbName);
 </code></pre></div>
 
@@ -686,7 +686,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (mysqlClient is mysql:Client) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (mysqlClient is mysql:Client) {
 </code></pre></div>
 
                                 </td>
@@ -698,7 +698,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            sql:Error? initResult = initializeTable(mysqlClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            sql:Error? initResult = initializeTable(mysqlClient);
 </code></pre></div>
 
                                 </td>
@@ -717,7 +717,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            if (initResult is ()) {
+                                    <div class="highlight"><pre><code class=language-ballerina>            if (initResult is ()) {
 </code></pre></div>
 
                                 </td>
@@ -729,7 +729,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            insertSingleRecord(mysqlClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            insertSingleRecord(mysqlClient);
 </code></pre></div>
 
                                 </td>
@@ -748,7 +748,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            insertMultipleRecords(mysqlClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            insertMultipleRecords(mysqlClient);
 </code></pre></div>
 
                                 </td>
@@ -767,7 +767,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            checkData(mysqlClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            checkData(mysqlClient);
 </code></pre></div>
 
                                 </td>
@@ -786,7 +786,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            io:println(&quot;\nSample executed successfully!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>            io:println(&quot;\nSample executed successfully!&quot;);
             } else {
                 io:println(&quot;Customer table initialization failed: &quot;, initResult);
             }
@@ -801,7 +801,7 @@ returns sql:Error? {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            sql:Error? e = mysqlClient.close();
+                                    <div class="highlight"><pre><code class=language-ballerina>            sql:Error? e = mysqlClient.close();
 </code></pre></div>
 
                                 </td>
@@ -820,7 +820,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        } else {
+                                    <div class="highlight"><pre><code class=language-ballerina>        } else {
             io:println(&quot;Table initialization failed!!&quot;, mysqlClient);
         }
     } else {
@@ -838,7 +838,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function checkData(mysql:Client mysqlClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function checkData(mysql:Client mysqlClient) {
      stream&lt;record{}, error&gt; resultStream =
         mysqlClient-&gt;query(&quot;Select * from Customers&quot;);
 </code></pre></div>
@@ -852,7 +852,7 @@ returns sql:Error? {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>     io:println(&quot;\nData in Customers table:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>     io:println(&quot;\nData in Customers table:&quot;);
      error? e = resultStream.forEach(function(record {} result) {
                  io:println(result.toString());
      });

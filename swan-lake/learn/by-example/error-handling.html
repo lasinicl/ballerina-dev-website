@@ -150,7 +150,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -162,7 +162,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function getAccountBalance(int accountID) returns int|error {
+                                    <div class="highlight"><pre><code class=language-ballerina>function getAccountBalance(int accountID) returns int|error {
     if (accountID &lt; 0) {
 </code></pre></div>
 
@@ -175,7 +175,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        return error(&quot;Invalid account ID&quot;, accountID = accountID);
+                                    <div class="highlight"><pre><code class=language-ballerina>        return error(&quot;Invalid account ID&quot;, accountID = accountID);
     } else if (accountID &gt; 100) {
 </code></pre></div>
 
@@ -195,7 +195,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        return error(&quot;Account not found&quot;, accountID = accountID);
+                                    <div class="highlight"><pre><code class=language-ballerina>        return error(&quot;Account not found&quot;, accountID = accountID);
     }
 </code></pre></div>
 
@@ -215,7 +215,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    return 600;
+                                    <div class="highlight"><pre><code class=language-ballerina>    return 600;
 }
 </code></pre></div>
 
@@ -235,7 +235,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -247,7 +247,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error simpleError = error(&quot;Simple error occurred&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    error simpleError = error(&quot;Simple error occurred&quot;);
 </code></pre></div>
 
                                 </td>
@@ -272,7 +272,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Error: &quot;, simpleError.message());
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Error: &quot;, simpleError.message());
 </code></pre></div>
 
                                 </td>
@@ -293,7 +293,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int|error result = getAccountBalance(-1);
+                                    <div class="highlight"><pre><code class=language-ballerina>    int|error result = getAccountBalance(-1);
 </code></pre></div>
 
                                 </td>
@@ -305,7 +305,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (result is int) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (result is int) {
         io:println(&quot;Account Balance: &quot;, result);
 </code></pre></div>
 
@@ -325,7 +325,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    } else {
+                                    <div class="highlight"><pre><code class=language-ballerina>    } else {
         io:println(&quot;Error: &quot;, result.message(),
                     &quot;, Account ID: &quot;, result.detail()[&quot;accountID&quot;]);
 </code></pre></div>
@@ -347,7 +347,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        error displayError = error(&quot;Failed to get account balance&quot;, result);
+                                    <div class="highlight"><pre><code class=language-ballerina>        error displayError = error(&quot;Failed to get account balance&quot;, result);
 </code></pre></div>
 
                                 </td>
@@ -366,7 +366,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        error? cause = displayError.cause();
+                                    <div class="highlight"><pre><code class=language-ballerina>        error? cause = displayError.cause();
         if (cause is error) {
             io:println(&quot;Caused by: &quot;, cause.message());
         } else {

@@ -33,7 +33,7 @@ redirect_from:
  If there are overloaded Java methods and you want to remove the ambiguity, the <code>paramTypes</code> field can be used
  to specify the element class type and dimension.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
 </p>
 
                         </td>
@@ -104,7 +104,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/java;
 </code></pre></div>
 
@@ -117,7 +117,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function asList(int... values) returns handle = @java:Method {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function asList(int... values) returns handle = @java:Method {
     name: &quot;asList&quot;,
     class: &quot;java.util.Arrays&quot;
 } external;
@@ -141,7 +141,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     var answer = 42;
 </code></pre></div>
 
@@ -154,7 +154,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    var javaList = asList(1, 2, answer);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var javaList = asList(1, 2, answer);
     io:println(javaList);
 }
 </code></pre></div>

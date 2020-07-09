@@ -48,7 +48,7 @@ redirect_from:
                             <p><p>You can use the HTTPS Listener to connect or interact with an HTTPS client.
  Provide the Secure Socket configuration to the server to expose an HTTPS connection.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -123,7 +123,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/config;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/config;
 import ballerina/http;
 import ballerina/log;
 </code></pre></div>
@@ -137,7 +137,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:ListenerConfiguration helloWorldEPConfig = {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:ListenerConfiguration helloWorldEPConfig = {
     secureSocket: {
         keyStore: {
             path: config:getAsString(&quot;b7a.home&quot;) +
@@ -156,7 +156,7 @@ import ballerina/log;
                                             <p>An HTTP endpoint can be configured to communicate through HTTPS as well.
  To secure an endpoint using HTTPS, the endpoint needs to be configured with
  a keystore and its <code>password</code> for the endpoint.
- The <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/records/ListenerSecureSocket.html">secureSocket</a> record provides the SSL-related listener configurations.</p>
+ The <a href="https://ballerina.io/learn/api-docs/ballerina/http/records/ListenerSecureSocket.html">secureSocket</a> record provides the SSL-related listener configurations.</p>
 
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener helloWorldEP = new (9095, helloWorldEPConfig);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener helloWorldEP = new (9095, helloWorldEPConfig);
 </code></pre></div>
 
                                 </td>
@@ -186,7 +186,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/hello&quot;
 }
 service helloWorld on helloWorldEP {
@@ -201,7 +201,7 @@ service helloWorld on helloWorldEP {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;GET&quot;],
         path: &quot;/&quot;
     }
@@ -217,7 +217,7 @@ service helloWorld on helloWorldEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
         if (result is error) {
             log:printError(&quot;Error in responding &quot;, result);
         }

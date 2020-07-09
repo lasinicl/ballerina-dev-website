@@ -79,7 +79,7 @@ redirect_from:
                             <p><p>This sample demonstrates how to read JSON content from a file and write JSON content
  to a file using the character channel, <code>readJson()</code>, and <code>writeJson()</code> of the I/O API.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/io/index.html">IO module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/io/index.html">IO module</a>.</p>
 </p>
 
                         </td>
@@ -168,7 +168,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/log;
 </code></pre></div>
 
@@ -181,7 +181,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function closeRc(io:ReadableCharacterChannel rc) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function closeRc(io:ReadableCharacterChannel rc) {
     var result = rc.close();
     if (result is error) {
         log:printError(&quot;Error occurred while closing character stream&quot;,
@@ -206,7 +206,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function closeWc(io:WritableCharacterChannel wc) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function closeWc(io:WritableCharacterChannel wc) {
     var result = wc.close();
     if (result is error) {
         log:printError(&quot;Error occurred while closing character stream&quot;,
@@ -231,7 +231,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function write(json content, string path) returns @tainted error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>function write(json content, string path) returns @tainted error? {
 </code></pre></div>
 
                                 </td>
@@ -250,7 +250,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:WritableByteChannel wbc = check io:openWritableFile(path);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:WritableByteChannel wbc = check io:openWritableFile(path);
 </code></pre></div>
 
                                 </td>
@@ -269,7 +269,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:WritableCharacterChannel wch = new (wbc, &quot;UTF8&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:WritableCharacterChannel wch = new (wbc, &quot;UTF8&quot;);
     var result = wch.writeJson(content);
     closeWc(wch);
     return result;
@@ -292,7 +292,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function read(string path) returns @tainted json|error {
+                                    <div class="highlight"><pre><code class=language-ballerina>function read(string path) returns @tainted json|error {
 </code></pre></div>
 
                                 </td>
@@ -311,7 +311,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:ReadableByteChannel rbc = check io:openReadableFile(path);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:ReadableByteChannel rbc = check io:openReadableFile(path);
 </code></pre></div>
 
                                 </td>
@@ -330,7 +330,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:ReadableCharacterChannel rch = new (rbc, &quot;UTF8&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:ReadableCharacterChannel rch = new (rbc, &quot;UTF8&quot;);
     var result = rch.readJson();
     closeRc(rch);
     return result;
@@ -353,7 +353,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     string filePath = &quot;./files/sample.json&quot;;
 </code></pre></div>
 
@@ -366,7 +366,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    json j1 = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    json j1 = {
         &quot;Store&quot;: {
             &quot;@id&quot;: &quot;AST&quot;,
             &quot;name&quot;: &quot;Anne&quot;,
@@ -396,7 +396,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var wResult = write(j1, filePath);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var wResult = write(j1, filePath);
     if (wResult is error) {
         log:printError(&quot;Error occurred while writing json: &quot;, wResult);
     } else {
@@ -419,7 +419,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var rResult = read(filePath);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var rResult = read(filePath);
         if (rResult is error) {
             log:printError(&quot;Error occurred while reading json: &quot;,
                             err = rResult);

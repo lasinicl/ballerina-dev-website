@@ -71,7 +71,7 @@ redirect_from:
                             <p><p>This example demonstrates how the Ballerina https client can be configured to connect to an https listener through 1-way SSL connection (i.e., the server is verified by the client).
  This example uses the Ballerina https listener to host a service and the https client sends requests for that listener.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -146,7 +146,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/config;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/config;
 import ballerina/http;
 import ballerina/log;
 </code></pre></div>
@@ -160,7 +160,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:ListenerConfiguration helloWorldEPConfig = {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:ListenerConfiguration helloWorldEPConfig = {
     secureSocket: {
         keyStore: {
             path: config:getAsString(&quot;b7a.home&quot;) +
@@ -189,7 +189,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener helloWorldEP = new (9095, helloWorldEPConfig);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener helloWorldEP = new (9095, helloWorldEPConfig);
 </code></pre></div>
 
                                 </td>
@@ -201,7 +201,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/hello&quot;
 }
 service helloWorld on helloWorldEP {
@@ -216,7 +216,7 @@ service helloWorld on helloWorldEP {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;GET&quot;],
         path: &quot;/&quot;
     }
@@ -232,7 +232,7 @@ service helloWorld on helloWorldEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
         if (result is error) {
             log:printError(&quot;Failed to respond&quot;, result);
         }
@@ -339,7 +339,7 @@ $ ballerina run basic_https_listener.bal --b7a.home=&lt;ballerina_home_path&gt;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/config;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/config;
 import ballerina/http;
 import ballerina/log;
 </code></pre></div>
@@ -353,7 +353,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:ClientConfiguration clientEPConfig = {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:ClientConfiguration clientEPConfig = {
     secureSocket: {
         trustStore: {
             path: config:getAsString(&quot;b7a.home&quot;) +
@@ -372,7 +372,7 @@ import ballerina/log;
                                             <p>This is a client endpoint configured to connect to the HTTPS service.
  As this is a 1-way SSL connection, the client needs to provide
  <code>trustStore</code> file <code>path</code> and its <code>password</code>.
- <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/records/ClientSecureSocket.html">secureSocket</a> record provides the SSL related configurations.</p>
+ <a href="https://ballerina.io/learn/api-docs/ballerina/http/records/ClientSecureSocket.html">secureSocket</a> record provides the SSL related configurations.</p>
 
                                         </div>
                                     </div>
@@ -383,7 +383,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -395,7 +395,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    http:Client clientEP = new(&quot;https://localhost:9095&quot;, clientEPConfig);
+                                    <div class="highlight"><pre><code class=language-ballerina>    http:Client clientEP = new(&quot;https://localhost:9095&quot;, clientEPConfig);
 </code></pre></div>
 
                                 </td>
@@ -414,7 +414,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var resp = clientEP-&gt;get(&quot;/hello/&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var resp = clientEP-&gt;get(&quot;/hello/&quot;);
     if (resp is http:Response) {
 </code></pre></div>
 
@@ -434,7 +434,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var payload = resp.getTextPayload();
+                                    <div class="highlight"><pre><code class=language-ballerina>        var payload = resp.getTextPayload();
         if (payload is string) {
 </code></pre></div>
 
@@ -455,7 +455,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            log:printInfo(payload);
+                                    <div class="highlight"><pre><code class=language-ballerina>            log:printInfo(payload);
         } else {
 </code></pre></div>
 
@@ -475,7 +475,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            log:printError(payload.message());
+                                    <div class="highlight"><pre><code class=language-ballerina>            log:printError(payload.message());
         }
     } else {
 </code></pre></div>
@@ -496,7 +496,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        log:printError(resp.message());
+                                    <div class="highlight"><pre><code class=language-ballerina>        log:printError(resp.message());
     }
 }
 </code></pre></div>

@@ -38,7 +38,7 @@ redirect_from:
                             <p><p>The <code>before</code> attribute allows you to execute a function before a test function.
  This capability can be used for setting up prerequisites that need to be executed before executing a test.
  Similarly, the <code>after</code> attribute can be used to execute a function after a test function.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
 </p>
 
                         </td>
@@ -109,7 +109,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/test;
 </code></pre></div>
 
@@ -122,7 +122,7 @@ import ballerina/test;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function beforeFunc() {
+                                    <div class="highlight"><pre><code class=language-ballerina>function beforeFunc() {
     io:println(&quot;I&#39;m the before function!&quot;);
 }
 </code></pre></div>
@@ -143,7 +143,7 @@ import ballerina/test;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {
     before: &quot;beforeFunc&quot;,
     after: &quot;afterFunc&quot;
 }
@@ -171,7 +171,7 @@ function testFunction() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function afterFunc() {
+                                    <div class="highlight"><pre><code class=language-ballerina>function afterFunc() {
     io:println(&quot;I&#39;m the after function!&quot;);
 }
 </code></pre></div>

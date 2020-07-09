@@ -42,7 +42,7 @@ redirect_from:
                             <p><p>A tuple is an immutable list of two or more values of a fixed length.
  A tuple type is described by specifying the type of each member in the list.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/lang.array/index.html">lang.array module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/lang.array/index.html">lang.array module</a>.</p>
 </p>
 
                         </td>
@@ -127,7 +127,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -139,7 +139,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -151,7 +151,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    [int, string] a = [10, &quot;John&quot;];
+                                    <div class="highlight"><pre><code class=language-ballerina>    [int, string] a = [10, &quot;John&quot;];
     io:println(a);
 </code></pre></div>
 
@@ -171,7 +171,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int aint;
+                                    <div class="highlight"><pre><code class=language-ballerina>    int aint;
     string astr;
 </code></pre></div>
 
@@ -184,7 +184,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    [aint, astr] = a;
+                                    <div class="highlight"><pre><code class=language-ballerina>    [aint, astr] = a;
     io:println(aint);
     io:println(astr);
 </code></pre></div>
@@ -207,7 +207,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var [aint1, astr1] = a;
+                                    <div class="highlight"><pre><code class=language-ballerina>    var [aint1, astr1] = a;
 </code></pre></div>
 
                                 </td>
@@ -226,7 +226,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var [q, r] = divideBy10(6);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var [q, r] = divideBy10(6);
     io:println(&quot;06/10: &quot;, &quot;quotient=&quot;, q, &quot; remainder=&quot;, r);
 </code></pre></div>
 
@@ -246,7 +246,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var [q1, _] = divideBy10(57);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var [q1, _] = divideBy10(57);
     io:println(&quot;57/10: &quot;, &quot;quotient=&quot;, q1);
 </code></pre></div>
 
@@ -267,7 +267,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    [int, int] returnValue = divideBy10(9);
+                                    <div class="highlight"><pre><code class=language-ballerina>    [int, int] returnValue = divideBy10(9);
 </code></pre></div>
 
                                 </td>
@@ -279,7 +279,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var [_, r1] = returnValue;
+                                    <div class="highlight"><pre><code class=language-ballerina>    var [_, r1] = returnValue;
     io:println(&quot;09/10: &quot;, &quot;remainder=&quot;, r1);
 }
 </code></pre></div>
@@ -300,7 +300,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function divideBy10(int d) returns ([int, int]) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function divideBy10(int d) returns ([int, int]) {
     int q = d / 10;
     int r = d % 10;
     return [q, r];

@@ -34,7 +34,7 @@ redirect_from:
  Similarly, the <code>@java:FieldSet</code> annotation can be used to create a Ballerina function with
  an external function that acts as a field setter.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
 </p>
 
                         </td>
@@ -105,7 +105,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/java;
 </code></pre></div>
 
@@ -118,7 +118,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function pi() returns float = @java:FieldGet {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function pi() returns float = @java:FieldGet {
     name: &quot;PI&quot;,
     class: &quot;java/lang/Math&quot;
 } external;
@@ -140,7 +140,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     float r = 4;
 </code></pre></div>
 
@@ -153,7 +153,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    float l = 2 * pi() * r;
+                                    <div class="highlight"><pre><code class=language-ballerina>    float l = 2 * pi() * r;
     io:println(l);
 }
 </code></pre></div>

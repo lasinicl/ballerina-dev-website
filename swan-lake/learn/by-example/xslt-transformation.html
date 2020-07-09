@@ -75,7 +75,7 @@ redirect_from:
                             <h2>XSLT Transformation</h2>
                             <p><p>This example demonstrates how the XML content can be transformed to HTML using a given XSL transformation.
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/index.html">xslt module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/xslt/index.html">xslt module</a>.</p>
 </p>
 
                         </td>
@@ -152,7 +152,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/xslt;
 </code></pre></div>
 
@@ -165,7 +165,7 @@ import ballerina/xslt;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -177,7 +177,7 @@ import ballerina/xslt;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    xml sourceXml = getXml();
+                                    <div class="highlight"><pre><code class=language-ballerina>    xml sourceXml = getXml();
 </code></pre></div>
 
                                 </td>
@@ -196,7 +196,7 @@ import ballerina/xslt;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    xml xsl = getXsl();
+                                    <div class="highlight"><pre><code class=language-ballerina>    xml xsl = getXsl();
 </code></pre></div>
 
                                 </td>
@@ -215,7 +215,7 @@ import ballerina/xslt;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    xml|error target = xslt:transform(sourceXml, xsl);
+                                    <div class="highlight"><pre><code class=language-ballerina>    xml|error target = xslt:transform(sourceXml, xsl);
     if (target is xml) {
         io:println(&quot;Transformed xml : &quot;, target);
     } else {
@@ -229,7 +229,7 @@ import ballerina/xslt;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p><a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/functions.html#transform">Transforms</a> the <code>XML</code> to another formats.</p>
+                                            <p><a href="https://ballerina.io/learn/api-docs/ballerina/xslt/functions.html#transform">Transforms</a> the <code>XML</code> to another formats.</p>
 
                                         </div>
                                     </div>
@@ -240,7 +240,7 @@ import ballerina/xslt;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function getXml() returns xml {
+                                    <div class="highlight"><pre><code class=language-ballerina>function getXml() returns xml {
     return xml `&lt;samples&gt;
                     &lt;song&gt;
                         &lt;title&gt;Summer of 69&lt;/title&gt;
@@ -274,7 +274,7 @@ import ballerina/xslt;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function getXsl() returns xml {
+                                    <div class="highlight"><pre><code class=language-ballerina>function getXsl() returns xml {
     return xml `&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
                     &lt;xsl:template match=&quot;/&quot;&gt;
                         &lt;html&gt;

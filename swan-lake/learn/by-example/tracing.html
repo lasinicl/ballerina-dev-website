@@ -57,7 +57,7 @@ redirect_from:
  Observability. To observe Ballerina code, the <code>--b7a.observability.enabled=true</code> property should be given when starting the service.
  The developers can trace their code blocks and measure the time incurred during the actual runtime execution.
  They can choose the hook their measurement with the default trace created or can create a completely new trace.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-observe-ballerina-code/">How to Observe Ballerina Services</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-observe-ballerina-code/">How to Observe Ballerina Services</a>.</p>
 </p>
 
                         </td>
@@ -154,7 +154,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 import ballerina/observe;
 import ballerina/runtime;
@@ -169,7 +169,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service hello on new http:Listener(9234) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service hello on new http:Listener(9234) {
 </code></pre></div>
 
                                 </td>
@@ -188,7 +188,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function sayHello(http:Caller caller, http:Request req)
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function sayHello(http:Caller caller, http:Request req)
                                 returns error? {
         http:Response res = new;
 </code></pre></div>
@@ -210,7 +210,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        int spanId = check observe:startSpan(&quot;MyFirstLogicSpan&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        int spanId = check observe:startSpan(&quot;MyFirstLogicSpan&quot;);
 </code></pre></div>
 
                                 </td>
@@ -229,7 +229,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        int rootParentSpanId = observe:startRootSpan(&quot;MyRootParentSpan&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        int rootParentSpanId = observe:startRootSpan(&quot;MyRootParentSpan&quot;);
 </code></pre></div>
 
                                 </td>
@@ -248,7 +248,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(1000);
 </code></pre></div>
 
                                 </td>
@@ -267,7 +267,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        int childSpanId = check observe:startSpan(&quot;MyRootChildSpan&quot;, (),
+                                    <div class="highlight"><pre><code class=language-ballerina>        int childSpanId = check observe:startSpan(&quot;MyRootChildSpan&quot;, (),
                                                             rootParentSpanId);
 </code></pre></div>
 
@@ -287,7 +287,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(1000);
 </code></pre></div>
 
                                 </td>
@@ -306,7 +306,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        error? result = observe:finishSpan(childSpanId);
+                                    <div class="highlight"><pre><code class=language-ballerina>        error? result = observe:finishSpan(childSpanId);
         if (result is error) {
             log:printError(&quot;Error in finishing span&quot;, result);
         }
@@ -328,7 +328,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(1000);
 </code></pre></div>
 
                                 </td>
@@ -347,7 +347,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        result = observe:finishSpan(rootParentSpanId);
+                                    <div class="highlight"><pre><code class=language-ballerina>        result = observe:finishSpan(rootParentSpanId);
         if (result is error) {
             log:printError(&quot;Error in finishing span&quot;, result);
         }
@@ -369,7 +369,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(1000);
 </code></pre></div>
 
                                 </td>
@@ -388,7 +388,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        result = observe:finishSpan(spanId);
+                                    <div class="highlight"><pre><code class=language-ballerina>        result = observe:finishSpan(spanId);
         if (result is error) {
             log:printError(&quot;Error in finishing span&quot;, result);
         }
@@ -410,7 +410,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        res.setPayload(&quot;Hello, World!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        res.setPayload(&quot;Hello, World!&quot;);
 </code></pre></div>
 
                                 </td>
@@ -429,7 +429,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        result = caller-&gt;respond(res);
+                                    <div class="highlight"><pre><code class=language-ballerina>        result = caller-&gt;respond(res);
 </code></pre></div>
 
                                 </td>
@@ -448,7 +448,7 @@ import ballerina/runtime;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (result is error) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (result is error) {
             log:printError(&quot;Error sending response&quot;, result);
         }
 </code></pre></div>
@@ -462,7 +462,7 @@ import ballerina/runtime;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        return ();
+                                    <div class="highlight"><pre><code class=language-ballerina>        return ();
     }
 }
 </code></pre></div>

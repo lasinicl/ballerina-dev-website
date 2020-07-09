@@ -40,7 +40,7 @@ redirect_from:
  <code>noOfRecurrences</code> field can be used to provide the maximum number of times
  the Timer should run before shutting down.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/task/index.html">Task module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/task/index.html">Task module</a>.</p>
 </p>
 
                         </td>
@@ -121,7 +121,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/log;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/log;
 import ballerina/task;
 </code></pre></div>
 
@@ -134,7 +134,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>task:TimerConfiguration timerConfiguration = {
+                                    <div class="highlight"><pre><code class=language-ballerina>task:TimerConfiguration timerConfiguration = {
     intervalInMillis: 1000,
     initialDelayInMillis: 3000,
 </code></pre></div>
@@ -144,7 +144,7 @@ import ballerina/task;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>The <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/task/records/TimerConfiguration.html"><code>task:TimerConfiguration</code></a> record to configure the Task Listener.</p>
+                                            <p>The <a href="https://ballerina.io/learn/api-docs/ballerina/task/records/TimerConfiguration.html"><code>task:TimerConfiguration</code></a> record to configure the Task Listener.</p>
 
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    noOfRecurrences: 10
+                                    <div class="highlight"><pre><code class=language-ballerina>    noOfRecurrences: 10
 </code></pre></div>
 
                                 </td>
@@ -174,7 +174,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>};
+                                    <div class="highlight"><pre><code class=language-ballerina>};
 </code></pre></div>
 
                                 </td>
@@ -186,7 +186,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener task:Listener timer = new (timerConfiguration);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener task:Listener timer = new (timerConfiguration);
 </code></pre></div>
 
                                 </td>
@@ -205,7 +205,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>int count = 0;
+                                    <div class="highlight"><pre><code class=language-ballerina>int count = 0;
 </code></pre></div>
 
                                 </td>
@@ -217,7 +217,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service timerService on timer {
+                                    <div class="highlight"><pre><code class=language-ballerina>service timerService on timer {
 </code></pre></div>
 
                                 </td>
@@ -236,7 +236,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onTrigger() {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onTrigger() {
         log:printInfo(&quot;Cleaning up...&quot;);
         log:printInfo(count.toString());
         count = count + 1;
@@ -259,7 +259,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>}
 </code></pre></div>
 
                                 </td>

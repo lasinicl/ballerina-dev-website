@@ -78,7 +78,7 @@ redirect_from:
  This sample includes a gRPC server streaming service and a non-blocking client. The
  client sends a request to the server and gets a stream to read the messages until all the messages are read.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/grpc/index.html">GRPC module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/grpc/index.html">GRPC module</a>.</p>
 </p>
 
                         </td>
@@ -143,7 +143,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>syntax = &quot;proto3&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>syntax = &quot;proto3&quot;;
 import &quot;google/protobuf/wrappers.proto&quot;;
 service HelloWorld {
 	rpc lotsOfReplies (google.protobuf.StringValue)
@@ -265,7 +265,7 @@ $ ballerina grpc --input grpc_server_streaming.proto  --output stubs
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/grpc;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/grpc;
 import ballerina/log;
 </code></pre></div>
 
@@ -285,7 +285,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service HelloWorld on new grpc:Listener(9090) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service HelloWorld on new grpc:Listener(9090) {
 </code></pre></div>
 
                                 </td>
@@ -297,7 +297,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function lotsOfReplies(grpc:Caller caller, string name) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function lotsOfReplies(grpc:Caller caller, string name) {
         log:printInfo(&quot;Server received hello from &quot; + name);
         string[] greets = [&quot;Hi&quot;, &quot;Hey&quot;, &quot;GM&quot;];
 </code></pre></div>
@@ -311,7 +311,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        foreach string greet in greets {
+                                    <div class="highlight"><pre><code class=language-ballerina>        foreach string greet in greets {
             string msg = greet + &quot; &quot; + name;
             grpc:Error? err = caller-&gt;send(msg);
             if (err is grpc:Error) {
@@ -338,7 +338,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        grpc:Error? result = caller-&gt;complete();
+                                    <div class="highlight"><pre><code class=language-ballerina>        grpc:Error? result = caller-&gt;complete();
         if (result is grpc:Error) {
             log:printError(&quot;Error in sending completed notification to caller&quot;,
                 err = result);
@@ -495,7 +495,7 @@ $ ballerina run target/bin/service.jar
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/grpc;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/grpc;
 import ballerina/io;
 </code></pre></div>
 
@@ -515,7 +515,7 @@ import ballerina/io;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>int total = 0;
+                                    <div class="highlight"><pre><code class=language-ballerina>int total = 0;
 public function main() {
 </code></pre></div>
 
@@ -528,7 +528,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    HelloWorldClient helloWorldEp = new (&quot;http://localhost:9090&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    HelloWorldClient helloWorldEp = new (&quot;http://localhost:9090&quot;);
 </code></pre></div>
 
                                 </td>
@@ -547,7 +547,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    grpc:Error? result = helloWorldEp-&gt;lotsOfReplies(&quot;Sam&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>    grpc:Error? result = helloWorldEp-&gt;lotsOfReplies(&quot;Sam&quot;,
                                                     HelloWorldMessageListener);
     if (result is grpc:Error) {
         io:println(&quot;Error from Connector: &quot; + result.message());
@@ -572,7 +572,7 @@ public function main() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    while (total == 0) {}
+                                    <div class="highlight"><pre><code class=language-ballerina>    while (total == 0) {}
     io:println(&quot;Client got response successfully.&quot;);
 }
 </code></pre></div>
@@ -586,7 +586,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service HelloWorldMessageListener = service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service HelloWorldMessageListener = service {
 </code></pre></div>
 
                                 </td>
@@ -605,7 +605,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onMessage(string message) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onMessage(string message) {
         io:println(&quot;Response received from server: &quot; + message);
     }
 </code></pre></div>
@@ -626,7 +626,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onError(error err) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onError(error err) {
         io:println(&quot;Error from Connector: &quot; + err.message());
     }
 </code></pre></div>
@@ -647,7 +647,7 @@ public function main() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onComplete() {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onComplete() {
         total = 1;
         io:println(&quot;Server Complete Sending Responses.&quot;);
     }

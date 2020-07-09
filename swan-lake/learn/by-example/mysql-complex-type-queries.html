@@ -117,7 +117,7 @@ redirect_from:
  onwards. Therefore, it is recommended to use a MySQL driver version greater
  than 8.0.x.<br><br>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/mysql/index.html">MySQL module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/mysql/index.html">MySQL module</a>.</p>
 </p>
 
                         </td>
@@ -244,7 +244,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/mysql;
 import ballerina/sql;
 import ballerina/time;
@@ -259,7 +259,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>string dbUser = &quot;root&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>string dbUser = &quot;root&quot;;
 string dbPassword = &quot;Test@123&quot;;
 </code></pre></div>
 
@@ -281,7 +281,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type BinaryType record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type BinaryType record {|
     int row_id;
     byte[] blob_type;
     byte[] binary_type;
@@ -304,7 +304,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type DateTimeType record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type DateTimeType record {|
     int row_id;
     string date_type;
     int time_type;
@@ -322,7 +322,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function queryBinaryType(mysql:Client mysqlClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function queryBinaryType(mysql:Client mysqlClient) {
     io:println(&quot;------ Query Binary Type -------&quot;);
 </code></pre></div>
 
@@ -335,7 +335,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    stream&lt;record{}, error&gt; resultStream =
+                                    <div class="highlight"><pre><code class=language-ballerina>    stream&lt;record{}, error&gt; resultStream =
         mysqlClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;);
 </code></pre></div>
 
@@ -358,7 +358,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 1:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 1:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -370,7 +370,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error? e = resultStream.forEach(function(record {} result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = resultStream.forEach(function(record {} result) {
         io:println(result);
     });
     if (e is error) {
@@ -396,7 +396,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resultStream = mysqlClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;, BinaryType);
+                                    <div class="highlight"><pre><code class=language-ballerina>    resultStream = mysqlClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;, BinaryType);
     stream&lt;BinaryType, sql:Error&gt; binaryResultStream =
         &lt;stream&lt;BinaryType, sql:Error&gt;&gt;resultStream;
 </code></pre></div>
@@ -418,7 +418,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 2:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 2:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -430,7 +430,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    e = binaryResultStream.forEach(function(BinaryType result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    e = binaryResultStream.forEach(function(BinaryType result) {
         io:println(result);
     });
     if (e is error) {
@@ -454,7 +454,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;------ ********* -------&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;------ ********* -------&quot;);
 }
 </code></pre></div>
 
@@ -467,7 +467,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function queryDateTimeType(mysql:Client mysqlClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function queryDateTimeType(mysql:Client mysqlClient) {
     io:println(&quot;------ Query Date Time Type -------&quot;);
 </code></pre></div>
 
@@ -480,7 +480,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    stream&lt;record{}, error&gt; resultStream =
+                                    <div class="highlight"><pre><code class=language-ballerina>    stream&lt;record{}, error&gt; resultStream =
         mysqlClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;);
 </code></pre></div>
 
@@ -503,7 +503,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 1:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 1:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -515,7 +515,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error? e = resultStream.forEach(function(record {} result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = resultStream.forEach(function(record {} result) {
         io:println(result);
     });
     if (e is error) {
@@ -541,7 +541,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resultStream = mysqlClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resultStream = mysqlClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;,
         DateTimeType);
     stream&lt;DateTimeType, sql:Error&gt; dateResultStream =
         &lt;stream&lt;DateTimeType, sql:Error&gt;&gt;resultStream;
@@ -566,7 +566,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 2:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 2:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -578,7 +578,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    e = dateResultStream.forEach(function(DateTimeType result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    e = dateResultStream.forEach(function(DateTimeType result) {
         io:println(result);
     });
     if (e is error) {
@@ -602,7 +602,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;------ ********* -------&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;------ ********* -------&quot;);
 }
 </code></pre></div>
 
@@ -615,7 +615,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function initializeTable() returns sql:Error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>function initializeTable() returns sql:Error? {
 </code></pre></div>
 
                                 </td>
@@ -634,7 +634,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    mysql:Client mysqlClient = check new (user = dbUser, password = dbPassword);
+                                    <div class="highlight"><pre><code class=language-ballerina>    mysql:Client mysqlClient = check new (user = dbUser, password = dbPassword);
     sql:ExecutionResult result = check
         mysqlClient-&gt;execute(&quot;CREATE DATABASE IF NOT EXISTS MYSQL_BBE&quot;);
 </code></pre></div>
@@ -648,7 +648,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    result = check mysqlClient-&gt;execute(&quot;DROP TABLE IF EXISTS &quot; +
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = check mysqlClient-&gt;execute(&quot;DROP TABLE IF EXISTS &quot; +
         &quot;MYSQL_BBE.BINARY_TYPES&quot;);
     result = check mysqlClient-&gt;execute(&quot;CREATE TABLE MYSQL_BBE.BINARY_TYPES&quot;+
         &quot;(row_id INTEGER NOT NULL, blob_type BLOB(1024), binary_type &quot;+
@@ -668,7 +668,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    result = check mysqlClient-&gt;execute(&quot;DROP TABLE IF EXISTS &quot; +
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = check mysqlClient-&gt;execute(&quot;DROP TABLE IF EXISTS &quot; +
         &quot;MYSQL_BBE.DATE_TIME_TYPES&quot;);
     result = check mysqlClient-&gt;execute(&quot;CREATE TABLE &quot;+
         &quot;MYSQL_BBE.DATE_TIME_TYPES(row_id INTEGER NOT NULL,&quot; +
@@ -689,7 +689,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    check mysqlClient.close();
+                                    <div class="highlight"><pre><code class=language-ballerina>    check mysqlClient.close();
 }
 </code></pre></div>
 
@@ -702,7 +702,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -714,7 +714,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:Error? err = initializeTable();
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:Error? err = initializeTable();
 </code></pre></div>
 
                                 </td>
@@ -733,7 +733,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (err is sql:Error) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (err is sql:Error) {
         io:println(&quot;Sample data initialization failed!&quot;, err);
     } else {
         mysql:Client|sql:Error mysqlClient = new (user = dbUser,
@@ -750,7 +750,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            queryBinaryType(mysqlClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            queryBinaryType(mysqlClient);
             queryDateTimeType(mysqlClient);
 </code></pre></div>
 
@@ -770,7 +770,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            io:println(&quot;Sample executed successfully!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>            io:println(&quot;Sample executed successfully!&quot;);
 </code></pre></div>
 
                                 </td>
@@ -782,7 +782,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            sql:Error? e = mysqlClient.close();
+                                    <div class="highlight"><pre><code class=language-ballerina>            sql:Error? e = mysqlClient.close();
 </code></pre></div>
 
                                 </td>
@@ -801,7 +801,7 @@ string dbPassword = &quot;Test@123&quot;;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        } else {
+                                    <div class="highlight"><pre><code class=language-ballerina>        } else {
             io:println(&quot;MySQL Client initialization for querying data&quot; +
             &quot;failed!!&quot;, mysqlClient);
         }

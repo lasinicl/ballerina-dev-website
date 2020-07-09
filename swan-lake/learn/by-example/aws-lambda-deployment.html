@@ -40,7 +40,7 @@ redirect_from:
  Ballerina functions can be deployed in AWS Lambda by annotating a
  a Ballerina function with &ldquo;@awslambda:Function&rdquo;, which should have
  the function signature <code>function (awslambda:Context, json) returns json|error</code>.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-deploy-ballerina-programs-in-cloud/">How to Deploy Ballerina Programs and Services in the Cloud</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-deploy-ballerina-programs-in-cloud/">How to Deploy Ballerina Programs and Services in the Cloud</a>.</p>
 </p>
 
                         </td>
@@ -113,7 +113,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerinax/awslambda;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerinax/awslambda;
 import ballerina/system;
 </code></pre></div>
 
@@ -126,7 +126,7 @@ import ballerina/system;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@awslambda:Function
+                                    <div class="highlight"><pre><code class=language-ballerina>@awslambda:Function
 public function echo(awslambda:Context ctx, json input) returns json|error {
    return input;
 }
@@ -149,7 +149,7 @@ public function echo(awslambda:Context ctx, json input) returns json|error {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@awslambda:Function
+                                    <div class="highlight"><pre><code class=language-ballerina>@awslambda:Function
 public function uuid(awslambda:Context ctx, json input) returns json|error {
    return system:uuid();
 }
@@ -164,7 +164,7 @@ public function uuid(awslambda:Context ctx, json input) returns json|error {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@awslambda:Function
+                                    <div class="highlight"><pre><code class=language-ballerina>@awslambda:Function
 </code></pre></div>
 
                                 </td>
@@ -176,7 +176,7 @@ public function uuid(awslambda:Context ctx, json input) returns json|error {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>public function ctxinfo(awslambda:Context ctx, json input) returns json|error {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function ctxinfo(awslambda:Context ctx, json input) returns json|error {
    json result = { RequestID: ctx.getRequestId(),
                    DeadlineMS: ctx.getDeadlineMs(),
                    InvokedFunctionArn: ctx.getInvokedFunctionArn(),

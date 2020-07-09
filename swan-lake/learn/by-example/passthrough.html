@@ -56,7 +56,7 @@ redirect_from:
                             <h2>Passthrough</h2>
                             <p><p>The passthrough sample exhibits the process of an HTTP client connector. The &lsquo;Echo Service&rsquo; is used as a sample backend.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -141,7 +141,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -154,7 +154,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEP = new (&quot;http://localhost:9092/hello&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEP = new (&quot;http://localhost:9092/hello&quot;);
 </code></pre></div>
 
                                 </td>
@@ -166,7 +166,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service passthrough on new http:Listener(9090) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service passthrough on new http:Listener(9090) {
 </code></pre></div>
 
                                 </td>
@@ -178,7 +178,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         path: &quot;/&quot;
     }
     resource function passthrough(http:Caller caller, http:Request req) {
@@ -201,7 +201,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var clientResponse = clientEP-&gt;forward(&quot;/&quot;, req);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var clientResponse = clientEP-&gt;forward(&quot;/&quot;, req);
 </code></pre></div>
 
                                 </td>
@@ -209,7 +209,7 @@ import ballerina/log;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>When <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/clients/Client.html#forward">forward()</a> is called on the backend client endpoint, it forwards the request that the passthrough
+                                            <p>When <a href="https://ballerina.io/learn/api-docs/ballerina/http/clients/Client.html#forward">forward()</a> is called on the backend client endpoint, it forwards the request that the passthrough
  resource received to the backend. When forwarding, the request is made using the same HTTP method that was
  used to invoke the passthrough resource. The <code>forward()</code> function returns the response from the backend if
  there are no errors.</p>
@@ -223,7 +223,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (clientResponse is http:Response) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (clientResponse is http:Response) {
 </code></pre></div>
 
                                 </td>
@@ -242,7 +242,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            var result = caller-&gt;respond(clientResponse);
+                                    <div class="highlight"><pre><code class=language-ballerina>            var result = caller-&gt;respond(clientResponse);
             if (result is error) {
                 log:printError(&quot;Error sending response&quot;, result);
             }
@@ -266,7 +266,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            http:Response res = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>            http:Response res = new;
             res.statusCode = 500;
             res.setPayload(clientResponse.message());
             var result = caller-&gt;respond(res);
@@ -294,7 +294,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service hello on new http:Listener(9092) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service hello on new http:Listener(9092) {
 </code></pre></div>
 
                                 </td>
@@ -313,7 +313,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;POST&quot;, &quot;PUT&quot;, &quot;GET&quot;],
         path: &quot;/&quot;
     }
@@ -336,7 +336,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(&quot;Hello World!&quot;);
         if (result is error) {
             log:printError(&quot;Error sending response&quot;, result);
         }
@@ -349,7 +349,7 @@ import ballerina/log;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p><a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/clients/Caller.html#respond">Send the response</a> back to the caller.</p>
+                                            <p><a href="https://ballerina.io/learn/api-docs/ballerina/http/clients/Caller.html#respond">Send the response</a> back to the caller.</p>
 
                                         </div>
                                     </div>

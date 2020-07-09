@@ -71,7 +71,7 @@ redirect_from:
  configured LDAP server. The result returned from the LDAP
  server is used for authentication and authorization.
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/ldap/index.html">LDAP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/ldap/index.html">LDAP module</a>.</p>
 </p>
 
                         </td>
@@ -148,7 +148,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/config;
 import ballerina/log;
 import ballerina/ldap;
@@ -163,7 +163,7 @@ import ballerina/ldap;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>ldap:LdapConnectionConfig ldapConfig = {
+                                    <div class="highlight"><pre><code class=language-ballerina>ldap:LdapConnectionConfig ldapConfig = {
     domainName: &quot;ballerina.io&quot;,
     connectionURL: &quot;ldap://localhost:20000&quot;,
     connectionName: &quot;uid=admin,ou=system&quot;,
@@ -203,7 +203,7 @@ import ballerina/ldap;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>ldap:InboundLdapAuthProvider ldapAuthProvider = new(ldapConfig, &quot;ldap01&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>ldap:InboundLdapAuthProvider ldapAuthProvider = new(ldapConfig, &quot;ldap01&quot;);
 </code></pre></div>
 
                                 </td>
@@ -223,7 +223,7 @@ import ballerina/ldap;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:BasicAuthHandler ldapAuthHandler = new(ldapAuthProvider);
+                                    <div class="highlight"><pre><code class=language-ballerina>http:BasicAuthHandler ldapAuthHandler = new(ldapAuthProvider);
 </code></pre></div>
 
                                 </td>
@@ -242,7 +242,7 @@ import ballerina/ldap;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener ep = new (9090, {
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener ep = new (9090, {
     auth: {
         authHandlers: [ldapAuthHandler]
     },
@@ -267,7 +267,7 @@ import ballerina/ldap;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    secureSocket: {
+                                    <div class="highlight"><pre><code class=language-ballerina>    secureSocket: {
         keyStore: {
             path: config:getAsString(&quot;b7a.home&quot;) +
                   &quot;/bre/security/ballerinaKeystore.p12&quot;,
@@ -293,7 +293,7 @@ import ballerina/ldap;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>service hello on ep {
+                                    <div class="highlight"><pre><code class=language-ballerina>service hello on ep {
     resource function sayHello(http:Caller caller, http:Request req) {
         error? result = caller-&gt;respond(&quot;Hello, World!!!&quot;);
         if (result is error) {

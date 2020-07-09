@@ -124,7 +124,7 @@ redirect_from:
                             <h2>JWT Issue/Validate</h2>
                             <p><p>This example demonstrates how to issue and validate a JWT.
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/jwt/index.html">JWT module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/jwt/index.html">JWT module</a>.</p>
 </p>
 
                         </td>
@@ -211,7 +211,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/config;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/config;
 import ballerina/crypto;
 import ballerina/io;
 import ballerina/jwt;
@@ -227,7 +227,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -239,7 +239,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    crypto:KeyStore keyStore = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    crypto:KeyStore keyStore = {
         path: config:getAsString(&quot;b7a.home&quot;) +
               &quot;/bre/security/ballerinaKeystore.p12&quot;,
         password: &quot;ballerina&quot;
@@ -262,7 +262,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtKeyStoreConfig keyStoreConfig = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtKeyStoreConfig keyStoreConfig = {
         keyStore: keyStore,
         keyAlias: &quot;ballerina&quot;,
         keyPassword: &quot;ballerina&quot;
@@ -285,7 +285,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtHeader header = {};
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtHeader header = {};
     header.alg = jwt:RS256;
     header.typ = &quot;JWT&quot;;
     header.kid = &quot;NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ&quot;;
@@ -307,7 +307,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtPayload payload = {};
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtPayload payload = {};
     payload.sub = &quot;admin&quot;;
     payload.iss = &quot;ballerina&quot;;
     payload.jti = &quot;100078234ba23&quot;;
@@ -331,7 +331,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string|jwt:Error jwt = jwt:issueJwt(header, payload, keyStoreConfig);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string|jwt:Error jwt = jwt:issueJwt(header, payload, keyStoreConfig);
     if (jwt is string) {
         io:println(&quot;Issued JWT: &quot; + jwt);
     } else {
@@ -356,7 +356,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    crypto:TrustStore trustStore = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    crypto:TrustStore trustStore = {
         path: config:getAsString(&quot;b7a.home&quot;) +
               &quot;/bre/security/ballerinaTruststore.p12&quot;,
         password: &quot;ballerina&quot;
@@ -379,7 +379,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtValidatorConfig validatorConfig1 = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtValidatorConfig validatorConfig1 = {
         issuer: &quot;ballerina&quot;,
         audience: &quot;vEwzbcasJVQm1jVYHUHCjhxZ4tYa&quot;,
         clockSkewInSeconds: 60,
@@ -406,7 +406,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtPayload|jwt:Error result = jwt:validateJwt(&lt;string&gt;jwt, validatorConfig1);
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtPayload|jwt:Error result = jwt:validateJwt(&lt;string&gt;jwt, validatorConfig1);
     if (result is jwt:JwtPayload) {
         io:println(&quot;Validated JWT Payload: &quot; + result.toString());
     } else {
@@ -430,7 +430,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jwt:JwtValidatorConfig validatorConfig2 = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    jwt:JwtValidatorConfig validatorConfig2 = {
         issuer: &quot;ballerina&quot;,
         audience: &quot;vEwzbcasJVQm1jVYHUHCjhxZ4tYa&quot;,
         clockSkewInSeconds: 60,
@@ -461,7 +461,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    result = jwt:validateJwt(&lt;string&gt;jwt, validatorConfig2);
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = jwt:validateJwt(&lt;string&gt;jwt, validatorConfig2);
     if (result is jwt:JwtPayload) {
         io:println(&quot;Validated JWT Payload: &quot; + result.toString());
     } else {
@@ -550,7 +550,7 @@ Validated JWT Payload: iss=wso2 sub=John aud=ballerina ballerinaSamples jti=1000
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/config;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/config;
 import ballerina/http;
 </code></pre></div>
 
@@ -570,7 +570,7 @@ import ballerina/http;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener oauth2Server = new(20000, {
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener oauth2Server = new(20000, {
     secureSocket: {
         keyStore: {
             path: config:getAsString(&quot;b7a.home&quot;) +
@@ -590,7 +590,7 @@ import ballerina/http;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service oauth2 on oauth2Server {
+                                    <div class="highlight"><pre><code class=language-ballerina>service oauth2 on oauth2Server {
 </code></pre></div>
 
                                 </td>
@@ -602,7 +602,7 @@ import ballerina/http;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;GET&quot;],
         path: &quot;/jwks&quot;
     }

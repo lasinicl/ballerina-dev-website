@@ -110,7 +110,7 @@ redirect_from:
                             <p><p>Testerina has in-built assertions that enable users to
  assert an outcome against an expected outcome.
  This example illustrates how to use different assertions.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
 </p>
 
                         </td>
@@ -207,7 +207,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/test;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/test;
 </code></pre></div>
 
                                 </td>
@@ -219,7 +219,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertIntEquals() {
     int answer = 0;
     int a = 5;
@@ -246,7 +246,7 @@ function testAssertIntEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertFloatEquals() {
     float a = 10.000;
     float b = 20.050;
@@ -271,7 +271,7 @@ function testAssertFloatEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertStringEquals() {
     string a = &quot;John&quot;;
     string b = &quot;Doe&quot;;
@@ -296,7 +296,7 @@ function testAssertStringEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertJsonEquals() {
     json a = {&quot;name&quot;: &quot;Ballerina&quot;};
     json b = {&quot;name&quot;: &quot;Ballerina&quot;};
@@ -320,7 +320,7 @@ function testAssertJsonEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertBooleanEquals() {
     boolean x = true;
     boolean y = true;
@@ -344,7 +344,7 @@ function testAssertBooleanEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertStringArrayEquals() {
     string[] x = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
     string[] y = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
@@ -368,7 +368,7 @@ function testAssertStringArrayEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertIntArrayEquals() {
     int[] x = [1, 2, 3];
     int[] y = [1, 2, 3];
@@ -392,7 +392,7 @@ function testAssertIntArrayEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertFloatArrayEquals() {
     float[] x = [1.1, 2.2, 3.3];
     float[] y = [1.1, 2.2, 3.3];
@@ -416,7 +416,7 @@ function testAssertFloatArrayEquals() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertNotEqualsString() {
     string s1 = &quot;abc&quot;;
     string s2 = &quot;def&quot;;
@@ -440,7 +440,7 @@ function testAssertNotEqualsString() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertNotEqualsJson() {
     json s1 = {&quot;a&quot;: &quot;b&quot;};
     json s2 = {&quot;a&quot;: &quot;c&quot;};
@@ -464,7 +464,7 @@ function testAssertNotEqualsJson() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertTrue() {
     boolean value = true;
     test:assertTrue(value, msg = &quot;AssertTrue failed&quot;);
@@ -487,7 +487,7 @@ function testAssertTrue() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertFalse() {
     boolean value = false;
     test:assertFalse(value, msg = &quot;AssertFalse failed&quot;);
@@ -510,7 +510,7 @@ function testAssertFalse() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testAssertFail() {
     if (true) {
         return;
@@ -535,7 +535,7 @@ function testAssertFail() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function intAdd(int a, int b) returns (int) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function intAdd(int a, int b) returns (int) {
     return (a + b);
 }
 </code></pre></div>
@@ -549,7 +549,7 @@ function testAssertFail() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function floatAdd(float a, float b) returns (float) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function floatAdd(float a, float b) returns (float) {
     return (a + b);
 }
 </code></pre></div>
@@ -563,7 +563,7 @@ function testAssertFail() {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function stringConcat(string a, string b) returns (string) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function stringConcat(string a, string b) returns (string) {
     return (a + b);
 }
 </code></pre></div>

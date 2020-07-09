@@ -47,8 +47,8 @@ redirect_from:
  <code>--mode</code> The mode (client or server) to generate code samples.
  If no value is specified for this parameter, only the stub file will be generated.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/grpc/index.html">GRPC module</a> and
- <a href="https://ballerina.io/swan-lake/learn/how-to-generate-code-for-protocol-buffers/">How to generate Ballerina code for Protocol Buffer Definition</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/grpc/index.html">GRPC module</a> and
+ <a href="https://ballerina.io/learn/how-to-generate-code-for-protocol-buffers/">How to generate Ballerina code for Protocol Buffer Definition</a>.</p>
 </p>
 
                         </td>
@@ -117,7 +117,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>syntax = &quot;proto3&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>syntax = &quot;proto3&quot;;
 </code></pre></div>
 
                                 </td>
@@ -129,7 +129,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service helloWorld {
+                                    <div class="highlight"><pre><code class=language-ballerina>service helloWorld {
     rpc hello(HelloRequest) returns (HelloResponse);
     rpc bye(ByeRequest) returns (ByeResponse);
 }
@@ -144,7 +144,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>message HelloRequest {
+                                    <div class="highlight"><pre><code class=language-ballerina>message HelloRequest {
 	string name = 1;
 }
 message HelloResponse {

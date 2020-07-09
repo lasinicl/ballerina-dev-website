@@ -103,7 +103,7 @@ redirect_from:
  throughout all tests whereas stubbing is ideal when defining different behaviors for
  different test cases is required.<br/><br/>
  For more information on the underlying module,
- see <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/test/index.html">The Test Module</a>.</p>
+ see <a href="https://ballerina.io/learn/api-docs/ballerina/test/index.html">The Test Module</a>.</p>
 </p>
 
                         </td>
@@ -176,7 +176,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/io;
 import ballerina/email;
 </code></pre></div>
@@ -197,7 +197,7 @@ import ballerina/email;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEndpoint = new(&quot;http://postman-echo.com&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEndpoint = new(&quot;http://postman-echo.com&quot;);
 email:SmtpClient smtpClient = new (&quot;localhost&quot;, &quot;admin&quot;,&quot;admin&quot;);
 </code></pre></div>
 
@@ -217,7 +217,7 @@ email:SmtpClient smtpClient = new (&quot;localhost&quot;, &quot;admin&quot;,&quo
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function performGet() returns http:Response {
+                                    <div class="highlight"><pre><code class=language-ballerina>function performGet() returns http:Response {
     io:println(&quot;Executing the 1st GET request&quot;);
     http:Response|error result = clientEndpoint-&gt;get(&quot;/headers&quot;);
     http:Response response = &lt;http:Response&gt;result;
@@ -241,7 +241,7 @@ email:SmtpClient smtpClient = new (&quot;localhost&quot;, &quot;admin&quot;,&quo
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if(response.statusCode == 200) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if(response.statusCode == 200) {
         io:println(&quot;Executing the 2nd GET request&quot;);
         http:Request req = new;
         req.addHeader(&quot;Sample-Name&quot;, &quot;http-client-connector&quot;);
@@ -262,7 +262,7 @@ email:SmtpClient smtpClient = new (&quot;localhost&quot;, &quot;admin&quot;,&quo
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function sendNotification(string[] emailIds) returns error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>function sendNotification(string[] emailIds) returns error? {
     email:Email msg = {
         &#39;from: &quot;builder@abc.com&quot;,
         subject: &quot;Error Alert ...&quot;,
@@ -393,7 +393,7 @@ email:SmtpClient smtpClient = new (&quot;localhost&quot;, &quot;admin&quot;,&quo
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/test;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/test;
 import ballerina/http;
 import ballerina/email;
 </code></pre></div>
@@ -414,7 +414,7 @@ import ballerina/email;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public type MockHttpClient client object {
+                                    <div class="highlight"><pre><code class=language-ballerina>public type MockHttpClient client object {
     public remote function get(@untainted string path,
         public http:RequestMessage message = ()) returns
             http:Response|http:ClientError {
@@ -437,7 +437,7 @@ import ballerina/email;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response res = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response res = new;
         res.statusCode = 500;
         return res;
     }
@@ -453,7 +453,7 @@ import ballerina/email;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testPerformGet() {
     http:Response mockResponse = new;
 </code></pre></div>
@@ -467,7 +467,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    clientEndpoint = &lt;http:Client&gt;test:mock(http:Client, new MockHttpClient());
+                                    <div class="highlight"><pre><code class=language-ballerina>    clientEndpoint = &lt;http:Client&gt;test:mock(http:Client, new MockHttpClient());
     http:Response res = performGet();
     test:assertEquals(res.statusCode, 500);
 </code></pre></div>
@@ -488,7 +488,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    clientEndpoint = &lt;http:Client&gt;test:mock(http:Client);
+                                    <div class="highlight"><pre><code class=language-ballerina>    clientEndpoint = &lt;http:Client&gt;test:mock(http:Client);
 </code></pre></div>
 
                                 </td>
@@ -507,7 +507,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;).thenReturn(new http:Response());
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;).thenReturn(new http:Response());
     res = performGet();
     test:assertEquals(res.statusCode, 200);
 </code></pre></div>
@@ -528,7 +528,7 @@ function testPerformGet() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    mockResponse.statusCode = 401;
+                                    <div class="highlight"><pre><code class=language-ballerina>    mockResponse.statusCode = 401;
 </code></pre></div>
 
                                 </td>
@@ -540,7 +540,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;)
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;)
         .thenReturnSequence(new http:Response(), mockResponse);
     res = performGet();
     test:assertEquals(res.statusCode, 401);
@@ -564,7 +564,7 @@ function testPerformGet() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    mockResponse.statusCode = 403;
+                                    <div class="highlight"><pre><code class=language-ballerina>    mockResponse.statusCode = 403;
 </code></pre></div>
 
                                 </td>
@@ -576,7 +576,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;).withArguments(&quot;/headers&quot;)
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;).withArguments(&quot;/headers&quot;)
         .thenReturn(mockResponse);
     res = performGet();
     test:assertEquals(res.statusCode, 403);
@@ -599,7 +599,7 @@ function testPerformGet() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    mockResponse.statusCode = 404;
+                                    <div class="highlight"><pre><code class=language-ballerina>    mockResponse.statusCode = 404;
 </code></pre></div>
 
                                 </td>
@@ -611,7 +611,7 @@ function testPerformGet() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;)
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(clientEndpoint).when(&quot;get&quot;)
         .withArguments(&quot;/get?test=123&quot;, test:ANY).thenReturn(mockResponse);
     res = performGet();
     test:assertEquals(res.statusCode, 404);
@@ -634,7 +634,7 @@ function testPerformGet() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testSendNotification() {
 </code></pre></div>
 
@@ -647,7 +647,7 @@ function testSendNotification() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    smtpClient = &lt;email:SmtpClient&gt;test:mock(email:SmtpClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>    smtpClient = &lt;email:SmtpClient&gt;test:mock(email:SmtpClient);
 </code></pre></div>
 
                                 </td>
@@ -659,7 +659,7 @@ function testSendNotification() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(smtpClient).when(&quot;send&quot;).doNothing();
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(smtpClient).when(&quot;send&quot;).doNothing();
     string[] emailIds = [&quot;user1@test.com&quot;, &quot;user2@test.com&quot;];
     error? err = sendNotification(emailIds);
     test:assertEquals(err, ());
@@ -683,7 +683,7 @@ function testSendNotification() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>}
 </code></pre></div>
 
                                 </td>
@@ -695,7 +695,7 @@ function testSendNotification() {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testGetClientUrl() {
     string mockClientUrl = &quot;http://foo&quot;;
     clientEndpoint = &lt;http:Client&gt;test:mock(http:Client);
@@ -710,7 +710,7 @@ function testGetClientUrl() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    test:prepare(clientEndpoint).getMember(&quot;url&quot;).thenReturn(mockClientUrl);
+                                    <div class="highlight"><pre><code class=language-ballerina>    test:prepare(clientEndpoint).getMember(&quot;url&quot;).thenReturn(mockClientUrl);
     test:assertEquals(clientEndpoint.url, mockClientUrl);
 </code></pre></div>
 
@@ -730,7 +730,7 @@ function testGetClientUrl() {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>}
 </code></pre></div>
 
                                 </td>
