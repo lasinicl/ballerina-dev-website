@@ -42,7 +42,7 @@ redirect_from:
                             <p><p>The <code>Directory Listener</code> is used to listen to a directory in the local file system.
  It notifies when new files are created in the directory or when the existing files are deleted or modified.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/file/index.html">File module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/file/index.html">File module</a>.</p>
 </p>
 
                         </td>
@@ -117,7 +117,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/file;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/file;
 import ballerina/log;
 </code></pre></div>
 
@@ -130,7 +130,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener file:Listener inFolder = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>listener file:Listener inFolder = new ({
     path: &quot;/home/ballerina/fs-server-connector/observed-dir&quot;,
     recursive: false
 });
@@ -157,7 +157,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service localObserver on inFolder {
+                                    <div class="highlight"><pre><code class=language-ballerina>service localObserver on inFolder {
 </code></pre></div>
 
                                 </td>
@@ -176,7 +176,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onCreate(file:FileEvent m) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onCreate(file:FileEvent m) {
         string msg = &quot;Create: &quot; + m.name;
         log:printInfo(msg);
     }
@@ -198,7 +198,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onDelete(file:FileEvent m) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onDelete(file:FileEvent m) {
         string msg = &quot;Delete: &quot; + m.name;
         log:printInfo(msg);
     }
@@ -220,7 +220,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onModify(file:FileEvent m) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onModify(file:FileEvent m) {
         string msg = &quot;Modify: &quot; + m.name;
         log:printInfo(msg);
     }

@@ -69,7 +69,7 @@ redirect_from:
                             <h2>Byte I/O</h2>
                             <p><p>This example demonstrates how bytes can be read and written through the I/O API.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/io/index.html">IO module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/io/index.html">IO module</a>.</p>
 </p>
 
                         </td>
@@ -154,7 +154,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/log;
 </code></pre></div>
 
@@ -167,7 +167,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function copy(io:ReadableByteChannel src,
+                                    <div class="highlight"><pre><code class=language-ballerina>function copy(io:ReadableByteChannel src,
               io:WritableByteChannel dst) returns error? {
 </code></pre></div>
 
@@ -187,7 +187,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    while (true) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    while (true) {
 </code></pre></div>
 
                                 </td>
@@ -207,7 +207,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        byte[]|io:Error result = src.read(1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        byte[]|io:Error result = src.read(1000);
         if (result is io:EofError) {
             break;
         } else if (result is error) {
@@ -232,7 +232,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            int i = 0;
+                                    <div class="highlight"><pre><code class=language-ballerina>            int i = 0;
             while (i &lt; result.length()) {
                 var result2 = dst.write(result, i);
                 if (result2 is error) {
@@ -263,7 +263,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function close(io:ReadableByteChannel|io:WritableByteChannel ch) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function close(io:ReadableByteChannel|io:WritableByteChannel ch) {
     abstract object {
         public function close() returns error?;
     } channelResult = ch;
@@ -290,7 +290,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() returns @tainted error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() returns @tainted error? {
     string srcPath = &quot;./files/ballerina.jpg&quot;;
     string dstPath = &quot;./files/ballerinaCopy.jpg&quot;;
 </code></pre></div>
@@ -304,7 +304,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:ReadableByteChannel srcCh = check io:openReadableFile(srcPath);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:ReadableByteChannel srcCh = check io:openReadableFile(srcPath);
 </code></pre></div>
 
                                 </td>
@@ -323,7 +323,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:WritableByteChannel dstCh = check io:openWritableFile(dstPath);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:WritableByteChannel dstCh = check io:openWritableFile(dstPath);
     io:println(&quot;Start to copy files from &quot; + srcPath + &quot; to &quot; + dstPath);
 </code></pre></div>
 
@@ -343,7 +343,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var result = copy(srcCh, dstCh);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var result = copy(srcCh, dstCh);
     if (result is error) {
         log:printError(&quot;error occurred while performing copy &quot;, result);
     } else {
@@ -368,7 +368,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    close(srcCh);
+                                    <div class="highlight"><pre><code class=language-ballerina>    close(srcCh);
     close(dstCh);
 }
 </code></pre></div>

@@ -42,7 +42,7 @@ redirect_from:
  the implementations of Ballerina functions that are marked as <code>external</code>.
  In this example, let&rsquo;s look at how to create Java objects by invoking their constructors from Ballerina.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
 </p>
 
                         </td>
@@ -117,7 +117,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/java;
 </code></pre></div>
 
@@ -130,7 +130,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function newArrayDeque() returns handle = @java:Constructor {
+                                    <div class="highlight"><pre><code class=language-ballerina>function newArrayDeque() returns handle = @java:Constructor {
     class: &quot;java.util.ArrayDeque&quot;
 } external;
 </code></pre></div>
@@ -140,7 +140,7 @@ import ballerina/java;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>The <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java/annotations.html#Constructor">@java:Constructor</a>
+                                            <p>The <a href="https://ballerina.io/learn/api-docs/ballerina/java/annotations.html#Constructor">@java:Constructor</a>
  annotation links the default constructor of
  the class <code>java.util.ArrayDeque</code> with this Ballerina function declaration.</p>
 
@@ -153,7 +153,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function newArrayDequeWithInitialCapacity(int numElements) returns handle = @java:Constructor {
+                                    <div class="highlight"><pre><code class=language-ballerina>function newArrayDequeWithInitialCapacity(int numElements) returns handle = @java:Constructor {
     class: &quot;java.util.ArrayDeque&quot;,
     paramTypes: [&quot;int&quot;]
 } external;
@@ -167,7 +167,7 @@ import ballerina/java;
                                             <p>This ballerina function is linked with the <code>java.util.ArrayDeque</code> constructor that takes the initial capacity.
  There are other overloaded constructors that take a single parameter in this class.
  To link with the exact constructor, you can specify the <code>paramTypes</code> field. Refer
- the <a href="https://ballerina.io/swan-lake/learn/by-example/overloaded-methods-constructors.html">Overloaded Methods/Constructors</a><br />
+ the <a href="https://ballerina.io/learn/by-example/overloaded-methods-constructors.html">Overloaded Methods/Constructors</a><br />
  section for more details on dealing with overloaded methods and constructors.
  This function returns a <code>handle</code> value, which refers to an object of <code>java.util.ArrayDeque</code> class.</p>
 
@@ -180,7 +180,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -192,7 +192,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var arrayDeque = newArrayDeque();
+                                    <div class="highlight"><pre><code class=language-ballerina>    var arrayDeque = newArrayDeque();
     io:println(arrayDeque);
 </code></pre></div>
 
@@ -212,7 +212,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    var arrayDequeWithCapacity = newArrayDequeWithInitialCapacity(10);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var arrayDequeWithCapacity = newArrayDequeWithInitialCapacity(10);
     io:println(arrayDequeWithCapacity);
 }
 </code></pre></div>

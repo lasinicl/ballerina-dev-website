@@ -146,7 +146,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -158,7 +158,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Student record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Student record {
     readonly id;
     string firstName;
     string lastName;
@@ -176,7 +176,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type StudentTable table&lt;Student&gt; key(id);
+                                    <div class="highlight"><pre><code class=language-ballerina>type StudentTable table&lt;Student&gt; key(id);
 </code></pre></div>
 
                                 </td>
@@ -195,7 +195,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     Student s1 = {id: 1, firstName: &quot;Alex&quot;, lastName: &quot;George&quot;, intakeYear: 2020, score: 1.5};
     Student s2 = {id: 2, firstName: &quot;Ranjan&quot;, lastName: &quot;Fonseka&quot;, intakeYear: 2021, score: 0.9};
     Student s3 = {id: 3, firstName: &quot;John&quot;, lastName: &quot;David&quot;, intakeYear: 2022, score: 1.2};
@@ -211,7 +211,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student[] studentList = [s1, s2, s3, s4];
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student[] studentList = [s1, s2, s3, s4];
 </code></pre></div>
 
                                 </td>
@@ -223,7 +223,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    StudentTable|error studentTable = table key(id) from var student in studentList
+                                    <div class="highlight"><pre><code class=language-ballerina>    StudentTable|error studentTable = table key(id) from var student in studentList
 </code></pre></div>
 
                                 </td>
@@ -244,7 +244,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        where student.intakeYear &gt; 2020
+                                    <div class="highlight"><pre><code class=language-ballerina>        where student.intakeYear &gt; 2020
 </code></pre></div>
 
                                 </td>
@@ -265,7 +265,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        let float newScore = 1.5
+                                    <div class="highlight"><pre><code class=language-ballerina>        let float newScore = 1.5
 </code></pre></div>
 
                                 </td>
@@ -284,7 +284,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        select {
+                                    <div class="highlight"><pre><code class=language-ballerina>        select {
             id: student.id,
             firstName: student.firstName,
             lastName: student.lastName,
@@ -310,7 +310,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        limit 2;
+                                    <div class="highlight"><pre><code class=language-ballerina>        limit 2;
 </code></pre></div>
 
                                 </td>
@@ -329,7 +329,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Student Table Information: &quot;, studentTable);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Student Table Information: &quot;, studentTable);
 </code></pre></div>
 
                                 </td>
@@ -341,7 +341,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student[] duplicateStdList = [s1, s2, s1];
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student[] duplicateStdList = [s1, s2, s1];
 </code></pre></div>
 
                                 </td>
@@ -353,7 +353,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error onConflictError = error(&quot;Key Conflict&quot;, message = &quot;cannot insert student&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    error onConflictError = error(&quot;Key Conflict&quot;, message = &quot;cannot insert student&quot;);
 </code></pre></div>
 
                                 </td>
@@ -372,7 +372,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    StudentTable|error duplicateStdTable = table key(id) from var student in duplicateStdList
+                                    <div class="highlight"><pre><code class=language-ballerina>    StudentTable|error duplicateStdTable = table key(id) from var student in duplicateStdList
             select student
 </code></pre></div>
 
@@ -385,7 +385,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            on conflict onConflictError;
+                                    <div class="highlight"><pre><code class=language-ballerina>            on conflict onConflictError;
 </code></pre></div>
 
                                 </td>
@@ -406,7 +406,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(duplicateStdTable);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(duplicateStdTable);
 }
 </code></pre></div>
 

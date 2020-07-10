@@ -43,7 +43,7 @@ redirect_from:
                             <p><p>The <code>dependsOn</code>attribute can be used to define a list of function names that the test
  function depends on. These functions will be executed before the test execution.
  This allows you to ensure that the tests are being executed in the expected order.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
 </p>
 
                         </td>
@@ -116,7 +116,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/test;
 </code></pre></div>
 
@@ -129,7 +129,7 @@ import ballerina/test;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {
 </code></pre></div>
 
                                 </td>
@@ -148,7 +148,7 @@ import ballerina/test;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    dependsOn: [&quot;testFunction3&quot;]
+                                    <div class="highlight"><pre><code class=language-ballerina>    dependsOn: [&quot;testFunction3&quot;]
 }
 function testFunction1() {
     io:println(&quot;I&#39;m in test function 1!&quot;);
@@ -172,7 +172,7 @@ function testFunction1() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {
     dependsOn: [&quot;testFunction1&quot;]
 }
 function testFunction2() {
@@ -197,7 +197,7 @@ function testFunction2() {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {}
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {}
 function testFunction3() {
     io:println(&quot;I&#39;m in test function 3!&quot;);
     test:assertTrue(true, msg = &quot;Failed!&quot;);

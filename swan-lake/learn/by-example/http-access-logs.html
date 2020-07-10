@@ -37,7 +37,7 @@ redirect_from:
                             <h2>Access Logs</h2>
                             <p><p>Ballerina supports HTTP access logs for HTTP services. The access log format used is the combined log format.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -108,7 +108,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -121,7 +121,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/hello&quot;
 }
 service helloService on new http:Listener(9095) {
@@ -141,7 +141,7 @@ service helloService on new http:Listener(9095) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(&quot;Successful&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(&quot;Successful&quot;);
 </code></pre></div>
 
                                 </td>
@@ -160,7 +160,7 @@ service helloService on new http:Listener(9095) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        if (result is error) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (result is error) {
             log:printError(&quot;Error occurred while responding&quot;, result);
         }
     }

@@ -32,7 +32,7 @@ redirect_from:
                             <p><p>The Ballerina to OpenApi tool is used to generate an OpenAPI Specification(OAS) v3 definition of a Ballerina service.
  This tool&rsquo;s command structure is as below.
  <code>ballerina openapi gen-contract [&lt;module&gt;:]&lt;service-name&gt; [-i &lt;ballerina-file&gt;] [-o &lt;contract-file&gt;] [-s|--skip-bind] [-h|--help]</code><br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-use-openapi-tools/">Ballerina OpenAPI Tools</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-use-openapi-tools/">Ballerina OpenAPI Tools</a>.</p>
 </p>
 
                         </td>
@@ -103,7 +103,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -116,7 +116,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener helloEp = new (9090);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener helloEp = new (9090);
 </code></pre></div>
 
                                 </td>
@@ -128,7 +128,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service hello on helloEp {
+                                    <div class="highlight"><pre><code class=language-ballerina>service hello on helloEp {
     resource function hi(http:Caller caller, http:Request request) {
         http:Response res = new;
         res.setPayload(&quot;Hello World!&quot;);
@@ -143,7 +143,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(res);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(res);
         if (result is error) {
            log:printError(&quot;Error when responding&quot;, result);
         }

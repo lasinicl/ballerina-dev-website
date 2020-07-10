@@ -61,7 +61,7 @@ redirect_from:
                             <h2>String</h2>
                             <p><p>Ballerina contains a comprehensive set of functions to manipulate Strings.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/lang.string/index.html">lang.string module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/lang.string/index.html">lang.string module</a>.</p>
 </p>
 
                         </td>
@@ -160,7 +160,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/lang.&#39;string;
 </code></pre></div>
 
@@ -173,7 +173,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -185,7 +185,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string statement = &quot;Lion in Town. Catch the Lion&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string statement = &quot;Lion in Town. Catch the Lion&quot;;
 </code></pre></div>
 
                                 </td>
@@ -197,7 +197,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string s1 = statement.toUpperAscii();
+                                    <div class="highlight"><pre><code class=language-ballerina>    string s1 = statement.toUpperAscii();
     io:println(&quot;ToUpper: &quot;, s1);
 </code></pre></div>
 
@@ -210,7 +210,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string s2 = statement.toLowerAscii();
+                                    <div class="highlight"><pre><code class=language-ballerina>    string s2 = statement.toLowerAscii();
     io:println(&quot;ToLower: &quot;, s2);
 </code></pre></div>
 
@@ -223,7 +223,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string s3 = statement.substring(0, 4);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string s3 = statement.substring(0, 4);
     io:println(&quot;SubString: &quot;, s3);
 </code></pre></div>
 
@@ -245,7 +245,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int? index = statement.indexOf(&quot;on&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    int? index = statement.indexOf(&quot;on&quot;);
     if (index is int) {
         io:println(&quot;IndexOf: &quot;, index);
     }
@@ -267,7 +267,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int length = statement.length();
+                                    <div class="highlight"><pre><code class=language-ballerina>    int length = statement.length();
     io:println(&quot;Length: &quot;, length);
 </code></pre></div>
 
@@ -287,7 +287,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string hello = &quot;Hello&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string hello = &quot;Hello&quot;;
     string ballerina = &quot;Ballerina!&quot;;
 </code></pre></div>
 
@@ -300,7 +300,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string s4 = hello.concat(&quot; &quot;, ballerina);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string s4 = hello.concat(&quot; &quot;, ballerina);
     io:println(&quot;Concat: &quot;, s4);
 </code></pre></div>
 
@@ -320,7 +320,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string s5 = &quot;,&quot;.&#39;join(hello, ballerina);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string s5 = &quot;,&quot;.&#39;join(hello, ballerina);
     io:println(&quot;Join: &quot;, s5);
 </code></pre></div>
 
@@ -340,7 +340,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    byte[] bArray = hello.toBytes();
+                                    <div class="highlight"><pre><code class=language-ballerina>    byte[] bArray = hello.toBytes();
 </code></pre></div>
 
                                 </td>
@@ -359,7 +359,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string|error s6 = &#39;string:fromBytes(bArray);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string|error s6 = &#39;string:fromBytes(bArray);
     if (s6 is string) {
         io:println(&quot;From bytes: &quot;, s6);
     }
@@ -381,7 +381,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string toTrim = &quot;  Ballerina Programming Language  &quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string toTrim = &quot;  Ballerina Programming Language  &quot;;
     string s7 = toTrim.trim();
     io:println(&quot;Trim: &quot;, s7);
 </code></pre></div>
@@ -402,7 +402,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    boolean hasSuffix = statement.endsWith(&quot;Lion&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    boolean hasSuffix = statement.endsWith(&quot;Lion&quot;);
     io:println(&quot;HasSuffix: &quot;, hasSuffix);
 </code></pre></div>
 
@@ -422,7 +422,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    boolean hasPrefix = statement.startsWith(&quot;Lion&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    boolean hasPrefix = statement.startsWith(&quot;Lion&quot;);
     io:println(&quot;HasPrefix: &quot;, hasPrefix);
 </code></pre></div>
 
@@ -442,7 +442,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string name = &quot;Sam&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string name = &quot;Sam&quot;;
     int marks = 90;
     string[] subjects = [&quot;English&quot;, &quot;Science&quot;];
     float average = 71.5;
@@ -467,7 +467,7 @@ import ballerina/lang.&#39;string;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    string country = &quot;Sri Lanka&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>    string country = &quot;Sri Lanka&quot;;
     string c = country[4];
     io:println(&quot;Member Access: &quot;, c);
 }

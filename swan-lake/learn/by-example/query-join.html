@@ -147,7 +147,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -159,7 +159,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Student record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Student record {
     string firstName;
     string lastName;
     int intakeYear;
@@ -176,7 +176,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Department record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Department record {
     int deptId;
     string deptName;
 };
@@ -191,7 +191,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Report record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Report record {
     string name;
     string deptName;
     string degree;
@@ -208,7 +208,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -220,7 +220,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student s1 = {firstName: &quot;Alex&quot;, lastName: &quot;George&quot;, intakeYear: 2020, deptId: 1};
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student s1 = {firstName: &quot;Alex&quot;, lastName: &quot;George&quot;, intakeYear: 2020, deptId: 1};
     Student s2 = {firstName: &quot;Ranjan&quot;, lastName: &quot;Fonseka&quot;, intakeYear: 2023, deptId: 3};
     Student s3 = {firstName: &quot;John&quot;, lastName: &quot;David&quot;, intakeYear: 2022, deptId:1};
     Student s4 = {firstName: &quot;Gorge&quot;, lastName: &quot;Fernando&quot;, intakeYear: 2021, deptId: 2};
@@ -235,7 +235,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Department d1 = {deptId: 1, deptName:&quot;Physics&quot;};
+                                    <div class="highlight"><pre><code class=language-ballerina>    Department d1 = {deptId: 1, deptName:&quot;Physics&quot;};
     Department d2 = {deptId: 2, deptName:&quot;Mathematics&quot;};
     Department d3 = {deptId: 3, deptName:&quot;Chemistry&quot;};
 </code></pre></div>
@@ -249,7 +249,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student[] studentList = [s1, s2, s3, s4];
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student[] studentList = [s1, s2, s3, s4];
     Department[] departmentList = [d1, d2, d3];
 </code></pre></div>
 
@@ -262,7 +262,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Report[] reportList = from var student in studentList
+                                    <div class="highlight"><pre><code class=language-ballerina>    Report[] reportList = from var student in studentList
 </code></pre></div>
 
                                 </td>
@@ -283,7 +283,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       join var department in departmentList
+                                    <div class="highlight"><pre><code class=language-ballerina>       join var department in departmentList
 </code></pre></div>
 
                                 </td>
@@ -303,7 +303,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       on student.deptId equals department.deptId
+                                    <div class="highlight"><pre><code class=language-ballerina>       on student.deptId equals department.deptId
 </code></pre></div>
 
                                 </td>
@@ -323,7 +323,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       select {
+                                    <div class="highlight"><pre><code class=language-ballerina>       select {
               name: student.firstName,
               deptName: department.deptName,
               degree: &quot;Bachelor of Science&quot;,
@@ -347,7 +347,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       limit 3;
+                                    <div class="highlight"><pre><code class=language-ballerina>       limit 3;
 </code></pre></div>
 
                                 </td>
@@ -366,7 +366,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    foreach var report in reportList {
+                                    <div class="highlight"><pre><code class=language-ballerina>    foreach var report in reportList {
         io:println(report);
     }
 }

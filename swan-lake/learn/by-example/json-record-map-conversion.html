@@ -148,7 +148,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -160,7 +160,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Person record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Person record {
     string fname;
     string lname;
     int age;
@@ -183,7 +183,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Movie record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Movie record {
     string title;
     string year;
     string released;
@@ -200,7 +200,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type MapAnydata map&lt;anydata&gt;;
+                                    <div class="highlight"><pre><code class=language-ballerina>type MapAnydata map&lt;anydata&gt;;
 </code></pre></div>
 
                                 </td>
@@ -212,7 +212,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     Movie theRevenant = {
         title: &quot;The Revenant&quot;,
         year: &quot;2015&quot;,
@@ -234,7 +234,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    json|error j = theRevenant.cloneWithType(json);
+                                    <div class="highlight"><pre><code class=language-ballerina>    json|error j = theRevenant.cloneWithType(json);
     if (j is json) {
         io:println(j.toJsonString());
         io:println(j.writer.lname);
@@ -259,7 +259,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    map&lt;anydata&gt;|error movieMap = theRevenant.cloneWithType(MapAnydata);
+                                    <div class="highlight"><pre><code class=language-ballerina>    map&lt;anydata&gt;|error movieMap = theRevenant.cloneWithType(MapAnydata);
     if (movieMap is map&lt;anydata&gt;) {
         Person|error writer = movieMap[&quot;writer&quot;].cloneWithType(Person);
         if (writer is Person) {
@@ -284,7 +284,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    json inceptionJ = {
+                                    <div class="highlight"><pre><code class=language-ballerina>    json inceptionJ = {
         title: &quot;Inception&quot;,
         year: &quot;2010&quot;,
         released: &quot;16 Jul 2010&quot;,

@@ -128,7 +128,7 @@ redirect_from:
  The <code>authHandler</code> field is defined inside the <code>auth</code> field with the
  value of it being the reference of the created <code>http:BearerAuthHandler</code>.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/oauth2/index.html">OAuth2 module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/oauth2/index.html">OAuth2 module</a>.</p>
 </p>
 
                         </td>
@@ -205,7 +205,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/config;
 import ballerina/oauth2;
 </code></pre></div>
@@ -219,7 +219,7 @@ import ballerina/oauth2;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>oauth2:OutboundOAuth2Provider oauth2Provider1 = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>oauth2:OutboundOAuth2Provider oauth2Provider1 = new ({
     tokenUrl: &quot;&lt;Token URL for the authorization endpoint&gt;&quot;,
     clientId: &quot;&lt;Client ID for the client credentials grant authentication&gt;&quot;,
     clientSecret: &quot;&lt;Client secret for the client credentials grant authentication&gt;&quot;,
@@ -255,7 +255,7 @@ http:BearerAuthHandler oauth2Handler1 = new (oauth2Provider1);
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEP1 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEP1 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
     auth: {
         authHandler: oauth2Handler1
     },
@@ -278,7 +278,7 @@ http:BearerAuthHandler oauth2Handler1 = new (oauth2Provider1);
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>oauth2:OutboundOAuth2Provider oauth2Provider2 = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>oauth2:OutboundOAuth2Provider oauth2Provider2 = new ({
     tokenUrl: &quot;&lt;Token URL for the authorization endpoint&gt;&quot;,
     username: &quot;&lt;Username for password grant authentication&gt;&quot;,
     password: &quot;&lt;Password for password grant authentication&gt;&quot;,
@@ -330,7 +330,7 @@ http:BearerAuthHandler oauth2Handler2 = new (oauth2Provider2);
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEP2 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEP2 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
     auth: {
         authHandler: oauth2Handler2
     },
@@ -353,7 +353,7 @@ http:BearerAuthHandler oauth2Handler2 = new (oauth2Provider2);
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>oauth2:OutboundOAuth2Provider oauth2Provider3 = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>oauth2:OutboundOAuth2Provider oauth2Provider3 = new ({
     accessToken: &quot;&lt;Access token for the authorization endpoint&gt;&quot;,
     refreshConfig: {
         clientId: &quot;&lt;Client ID for authentication with the authorization endpoint&gt;&quot;,
@@ -394,7 +394,7 @@ http:BearerAuthHandler oauth2Handler3 = new (oauth2Provider3);
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEP3 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEP3 = new (&quot;&lt;URL of the secured endpoint&gt;&quot;, {
     auth: {
         authHandler: oauth2Handler3
     },

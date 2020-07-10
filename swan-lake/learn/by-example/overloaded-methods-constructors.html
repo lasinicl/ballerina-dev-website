@@ -46,7 +46,7 @@ redirect_from:
  parameters, then you need to specify the parameter types of the exact constructor or the method using the
  <code>paramTypes</code> annotation field.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/java/index.html">Java module</a>.</p>
 </p>
 
                         </td>
@@ -127,7 +127,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/java;
 </code></pre></div>
 
@@ -140,7 +140,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function newStringBuffer(handle str) returns handle = @java:Constructor {
+                                    <div class="highlight"><pre><code class=language-ballerina>function newStringBuffer(handle str) returns handle = @java:Constructor {
     class: &quot;java.lang.StringBuffer&quot;,
     paramTypes: [&quot;java.lang.String&quot;]
 } external;
@@ -164,7 +164,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function appendString(handle receiver, handle str) returns handle = @java:Method {
+                                    <div class="highlight"><pre><code class=language-ballerina>function appendString(handle receiver, handle str) returns handle = @java:Method {
     name: &quot;append&quot;,
     class: &quot;java.lang.StringBuffer&quot;,
     paramTypes: [&quot;java.lang.String&quot;]
@@ -189,7 +189,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function appendStringBuffer(handle receiver, handle strBuffer) returns handle = @java:Method {
+                                    <div class="highlight"><pre><code class=language-ballerina>function appendStringBuffer(handle receiver, handle strBuffer) returns handle = @java:Method {
     name: &quot;append&quot;,
     class: &quot;java.lang.StringBuffer&quot;,
     paramTypes: [&quot;java.lang.StringBuffer&quot;]
@@ -213,7 +213,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -225,7 +225,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var strBuffer = newStringBuffer(java:fromString(&quot;Ballerina is &quot;));
+                                    <div class="highlight"><pre><code class=language-ballerina>    var strBuffer = newStringBuffer(java:fromString(&quot;Ballerina is &quot;));
     _ = appendString(strBuffer, java:fromString(&quot;awesome &quot;));
 </code></pre></div>
 
@@ -245,7 +245,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var strBufferToAppend = newStringBuffer(java:fromString(&quot;and &quot;));
+                                    <div class="highlight"><pre><code class=language-ballerina>    var strBufferToAppend = newStringBuffer(java:fromString(&quot;and &quot;));
     _ = appendString(strBufferToAppend, java:fromString(&quot;fun.&quot;));
 </code></pre></div>
 
@@ -258,7 +258,7 @@ import ballerina/java;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    _ = appendStringBuffer(strBuffer, strBufferToAppend);
+                                    <div class="highlight"><pre><code class=language-ballerina>    _ = appendStringBuffer(strBuffer, strBufferToAppend);
 </code></pre></div>
 
                                 </td>
@@ -277,7 +277,7 @@ import ballerina/java;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    string? text = java:toString(strBuffer);
+                                    <div class="highlight"><pre><code class=language-ballerina>    string? text = java:toString(strBuffer);
     io:println(text);
 }
 </code></pre></div>

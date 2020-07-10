@@ -115,7 +115,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -127,7 +127,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Student record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Student record {
     string firstName;
     string lastName;
     int intakeYear;
@@ -144,7 +144,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -156,7 +156,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student s1 = {firstName: &quot;Alex&quot;, lastName: &quot;George&quot;, intakeYear: 2020, score: 1.5};
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student s1 = {firstName: &quot;Alex&quot;, lastName: &quot;George&quot;, intakeYear: 2020, score: 1.5};
     Student s2 = {firstName: &quot;Ranjan&quot;, lastName: &quot;Fonseka&quot;, intakeYear: 2020, score: 0.9};
     Student s3 = {firstName: &quot;John&quot;, lastName: &quot;David&quot;, intakeYear: 2022, score: 1.2};
     Student s4 = {firstName: &quot;Gorge&quot;, lastName: &quot;Fernando&quot;, intakeYear: 2021, score: 1.1};
@@ -171,7 +171,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Student[] studentList = [s1, s2, s3, s4];
+                                    <div class="highlight"><pre><code class=language-ballerina>    Student[] studentList = [s1, s2, s3, s4];
 </code></pre></div>
 
                                 </td>
@@ -183,7 +183,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    string students = from var student in studentList
+                                    <div class="highlight"><pre><code class=language-ballerina>    string students = from var student in studentList
 </code></pre></div>
 
                                 </td>
@@ -204,7 +204,7 @@ The <code>students</code> is the concatenated string of the query expression res
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       where student.score &gt;= 1
+                                    <div class="highlight"><pre><code class=language-ballerina>       where student.score &gt;= 1
 </code></pre></div>
 
                                 </td>
@@ -225,7 +225,7 @@ When the <code>where</code> condition evaluates to false, the iteration skips th
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>       select student.firstName + &quot; &quot; + student.lastName + &quot;, &quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>       select student.firstName + &quot; &quot; + student.lastName + &quot;, &quot;;
 </code></pre></div>
 
                                 </td>
@@ -244,7 +244,7 @@ When the <code>where</code> condition evaluates to false, the iteration skips th
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(students);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(students);
 }
 </code></pre></div>
 

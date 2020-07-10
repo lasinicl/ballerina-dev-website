@@ -54,7 +54,7 @@ redirect_from:
  Messages will not be re-queued in the case of a rollback
  automatically unless negatively acknowledged by the user.
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/rabbitmq/index.html">RabbitMQ module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/rabbitmq/index.html">RabbitMQ module</a>.</p>
 </p>
 
                         </td>
@@ -129,7 +129,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/log;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/log;
 import ballerina/rabbitmq;
 </code></pre></div>
 
@@ -142,7 +142,7 @@ import ballerina/rabbitmq;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@rabbitmq:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@rabbitmq:ServiceConfig {
     queueConfig: {
         queueName: &quot;MyQueue&quot;
     },
@@ -166,7 +166,7 @@ import ballerina/rabbitmq;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service transactionConsumer on new rabbitmq:Listener({host: &quot;localhost&quot;, port: 5672}) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service transactionConsumer on new rabbitmq:Listener({host: &quot;localhost&quot;, port: 5672}) {
 </code></pre></div>
 
                                 </td>
@@ -185,7 +185,7 @@ import ballerina/rabbitmq;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onMessage(rabbitmq:Message message) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onMessage(rabbitmq:Message message) {
 </code></pre></div>
 
                                 </td>
@@ -204,7 +204,7 @@ import ballerina/rabbitmq;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var messageContent = message.getTextContent();
+                                    <div class="highlight"><pre><code class=language-ballerina>        var messageContent = message.getTextContent();
         if (messageContent is string) {
             log:printInfo(&quot;The message received: &quot; + messageContent);
         } else {
@@ -221,7 +221,7 @@ import ballerina/rabbitmq;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        transaction {
+                                    <div class="highlight"><pre><code class=language-ballerina>        transaction {
             var result = message-&gt;basicAck();
             if (result is error) {
                 log:printError(&quot;Error occurred while acknowledging the message.&quot;);

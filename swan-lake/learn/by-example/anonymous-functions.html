@@ -113,7 +113,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -125,7 +125,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -137,7 +137,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    function (string, string) returns string anonFunction =
+                                    <div class="highlight"><pre><code class=language-ballerina>    function (string, string) returns string anonFunction =
             function (string x, string y) returns string {
                 return x + y;
             };
@@ -160,7 +160,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var anonFunction2 = function (string x, string y, string... z) returns string {
+                                    <div class="highlight"><pre><code class=language-ballerina>    var anonFunction2 = function (string x, string y, string... z) returns string {
         string value = x + y;
         foreach var item in z {
             value += item;
@@ -188,7 +188,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    function (string, string) returns string arrowExpr = (x, y) =&gt; x + y;
+                                    <div class="highlight"><pre><code class=language-ballerina>    function (string, string) returns string arrowExpr = (x, y) =&gt; x + y;
     io:println(&quot;Output: &quot;, arrowExpr(&quot;Hello &quot;, &quot;World.!!!&quot;));
 }
 </code></pre></div>

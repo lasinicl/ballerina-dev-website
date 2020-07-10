@@ -151,7 +151,7 @@ redirect_from:
  Ballerina distribution. Therefore, it is not required to copy the driver JAR
  for the H2 database.<br><br>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/java.jdbc/index.html">JDBC module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/java.jdbc/index.html">JDBC module</a>.</p>
 </p>
 
                         </td>
@@ -286,7 +286,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/java.jdbc;
 import ballerina/sql;
 import ballerina/time;
@@ -301,7 +301,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type BinaryType record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type BinaryType record {|
     int row_id;
     byte[] blob_type;
     string clob_type;
@@ -318,7 +318,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type ArrayType record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type ArrayType record {|
     int row_id;
     int[] int_array;
     int[] long_array;
@@ -338,7 +338,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type DateTimeType record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type DateTimeType record {|
     int row_id;
     string date_type;
     int time_type;
@@ -356,7 +356,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function queryBinaryType(jdbc:Client jdbcClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function queryBinaryType(jdbc:Client jdbcClient) {
     io:println(&quot;------ Query Binary Type -------&quot;);
 </code></pre></div>
 
@@ -369,7 +369,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    stream&lt;record{}, error&gt; resultStream =
+                                    <div class="highlight"><pre><code class=language-ballerina>    stream&lt;record{}, error&gt; resultStream =
         jdbcClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;);
 </code></pre></div>
 
@@ -392,7 +392,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 1:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 1:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -404,7 +404,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error? e = resultStream.forEach(function(record {} result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = resultStream.forEach(function(record {} result) {
         io:println(result);
     });
     if (e is error) {
@@ -430,7 +430,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;, BinaryType);
+                                    <div class="highlight"><pre><code class=language-ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from BINARY_TYPES&quot;, BinaryType);
     stream&lt;BinaryType, sql:Error&gt; binaryResultStream
     = &lt;stream&lt;BinaryType, sql:Error&gt;&gt;resultStream;
 </code></pre></div>
@@ -452,7 +452,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 2:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 2:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -464,7 +464,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    e = binaryResultStream.forEach(function(BinaryType result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    e = binaryResultStream.forEach(function(BinaryType result) {
         io:println(result);
     });
     if (e is error) {
@@ -490,7 +490,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function queryArrayType(jdbc:Client jdbcClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function queryArrayType(jdbc:Client jdbcClient) {
     io:println(&quot;------ Query Array Type -------&quot;);
 </code></pre></div>
 
@@ -503,7 +503,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    stream&lt;record{}, error&gt; resultStream =
+                                    <div class="highlight"><pre><code class=language-ballerina>    stream&lt;record{}, error&gt; resultStream =
         jdbcClient-&gt;query(&quot;Select * from ARRAY_TYPES&quot;);
 </code></pre></div>
 
@@ -526,7 +526,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 1:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 1:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -538,7 +538,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error? e = resultStream.forEach(function(record {} result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = resultStream.forEach(function(record {} result) {
         io:println(result);
     });
     if (e is error) {
@@ -564,7 +564,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from ARRAY_TYPES&quot;, ArrayType);
+                                    <div class="highlight"><pre><code class=language-ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from ARRAY_TYPES&quot;, ArrayType);
     stream&lt;ArrayType, sql:Error&gt; arrayResultStream =
         &lt;stream&lt;ArrayType, sql:Error&gt;&gt;resultStream;
 </code></pre></div>
@@ -586,7 +586,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 2:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 2:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -598,7 +598,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    e = arrayResultStream.forEach(function(ArrayType result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    e = arrayResultStream.forEach(function(ArrayType result) {
         io:println(result);
     });
     if (e is error) {
@@ -624,7 +624,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function queryDateTimeType(jdbc:Client jdbcClient) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function queryDateTimeType(jdbc:Client jdbcClient) {
     io:println(&quot;------ Query Date Time Type -------&quot;);
 </code></pre></div>
 
@@ -637,7 +637,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    stream&lt;record{}, error&gt; resultStream =
+                                    <div class="highlight"><pre><code class=language-ballerina>    stream&lt;record{}, error&gt; resultStream =
         jdbcClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;);
 </code></pre></div>
 
@@ -660,7 +660,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 1:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 1:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -672,7 +672,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    error? e = resultStream.forEach(function(record {} result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = resultStream.forEach(function(record {} result) {
         io:println(result);
     });
     if (e is error) {
@@ -698,7 +698,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resultStream = jdbcClient-&gt;query(&quot;Select * from DATE_TIME_TYPES&quot;,
         DateTimeType);
     stream&lt;DateTimeType, sql:Error&gt; dateResultStream =
         &lt;stream&lt;DateTimeType, sql:Error&gt;&gt;resultStream;
@@ -723,7 +723,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Result 2:&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Result 2:&quot;);
 </code></pre></div>
 
                                 </td>
@@ -735,7 +735,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    e = dateResultStream.forEach(function(DateTimeType result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    e = dateResultStream.forEach(function(DateTimeType result) {
         io:println(result);
     });
     if (e is error) {
@@ -761,7 +761,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function initializeTable(jdbc:Client jdbcClient) returns sql:Error? {
+                                    <div class="highlight"><pre><code class=language-ballerina>function initializeTable(jdbc:Client jdbcClient) returns sql:Error? {
 </code></pre></div>
 
                                 </td>
@@ -780,7 +780,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    sql:ExecutionResult result =
+                                    <div class="highlight"><pre><code class=language-ballerina>    sql:ExecutionResult result =
         check jdbcClient-&gt;execute(&quot;DROP TABLE IF EXISTS BINARY_TYPES&quot;);
     result = check jdbcClient-&gt;execute(&quot;CREATE TABLE BINARY_TYPES (row_id &quot; +
         &quot;INTEGER NOT NULL, blob_type BLOB(1024), clob_type CLOB(1024),&quot; +
@@ -801,7 +801,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    result = check jdbcClient-&gt;execute(&quot;DROP TABLE IF EXISTS ARRAY_TYPES&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = check jdbcClient-&gt;execute(&quot;DROP TABLE IF EXISTS ARRAY_TYPES&quot;);
     result = check jdbcClient-&gt;execute(&quot;CREATE TABLE ARRAY_TYPES (row_id &quot; +
         &quot;INTEGER NOT NULL, int_array ARRAY, long_array ARRAY,float_array &quot; +
         &quot;ARRAY, double_array ARRAY, boolean_array ARRAY, string_array ARRAY,&quot; +
@@ -822,7 +822,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    result = check jdbcClient-&gt;execute(&quot;DROP TABLE IF EXISTS DATE_TIME_TYPES&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    result = check jdbcClient-&gt;execute(&quot;DROP TABLE IF EXISTS DATE_TIME_TYPES&quot;);
     result = check jdbcClient-&gt;execute(&quot;CREATE TABLE DATE_TIME_TYPES(row_id &quot; +
         &quot; INTEGER NOT NULL, date_type DATE, time_type TIME, timestamp_type &quot; +
         &quot;timestamp, datetime_type  datetime, PRIMARY KEY (row_id))&quot;);
@@ -841,7 +841,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -853,7 +853,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    jdbc:Client|sql:Error jdbcClient = new (&quot;jdbc:h2:file:./target/DATA_TYPES&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>    jdbc:Client|sql:Error jdbcClient = new (&quot;jdbc:h2:file:./target/DATA_TYPES&quot;,
         &quot;rootUser&quot;, &quot;rootPass&quot;);
 </code></pre></div>
 
@@ -873,7 +873,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (jdbcClient is jdbc:Client) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (jdbcClient is jdbc:Client) {
         sql:Error? err = initializeTable(jdbcClient);
         if (err is sql:Error) {
             io:println(&quot;Sample data table initialization failed: &quot;, err);
@@ -889,7 +889,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            queryBinaryType(jdbcClient);
+                                    <div class="highlight"><pre><code class=language-ballerina>            queryBinaryType(jdbcClient);
             queryArrayType(jdbcClient);
             queryDateTimeType(jdbcClient);
 </code></pre></div>
@@ -910,7 +910,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            io:println(&quot;Sample executed successfully!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>            io:println(&quot;Sample executed successfully!&quot;);
         }
 </code></pre></div>
 
@@ -923,7 +923,7 @@ import ballerina/time;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        sql:Error? e = jdbcClient.close();
+                                    <div class="highlight"><pre><code class=language-ballerina>        sql:Error? e = jdbcClient.close();
 </code></pre></div>
 
                                 </td>
@@ -942,7 +942,7 @@ import ballerina/time;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    } else {
+                                    <div class="highlight"><pre><code class=language-ballerina>    } else {
         io:println(&quot;Initialization failed: &quot;, jdbcClient);
     }
 }

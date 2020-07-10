@@ -93,7 +93,7 @@ redirect_from:
                             <h2>Chat Application</h2>
                             <p><p>This example explains how to write a simple chat application using Ballerina.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -184,7 +184,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -197,7 +197,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>final string NAME = &quot;NAME&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>final string NAME = &quot;NAME&quot;;
 final string AGE = &quot;AGE&quot;;
 </code></pre></div>
 
@@ -210,7 +210,7 @@ final string AGE = &quot;AGE&quot;;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/chat&quot;
 }
 service chatAppUpgrader on new http:Listener(9090) {
@@ -225,7 +225,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         webSocketUpgrade: {
             upgradePath: &quot;/{name}&quot;,
             upgradeService: chatApp
@@ -251,7 +251,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        map&lt;string[]&gt; queryParams = req.getQueryParams();
+                                    <div class="highlight"><pre><code class=language-ballerina>        map&lt;string[]&gt; queryParams = req.getQueryParams();
 </code></pre></div>
 
                                 </td>
@@ -259,7 +259,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Retrieve query parameters from the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/objects/Request.html">http:Request</a>.</p>
+                                            <p>Retrieve query parameters from the <a href="https://ballerina.io/learn/api-docs/ballerina/http/objects/Request.html">http:Request</a>.</p>
 
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (!queryParams.hasKey(&quot;age&quot;)) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (!queryParams.hasKey(&quot;age&quot;)) {
             var err = caller-&gt;cancelWebSocketUpgrade(400, &quot;Age is required&quot;);
             if (err is http:WebSocketError) {
                 log:printError(&quot;Error cancelling handshake&quot;, err);
@@ -298,7 +298,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            wsEp.setAttribute(NAME, name);
+                                    <div class="highlight"><pre><code class=language-ballerina>            wsEp.setAttribute(NAME, name);
             string? ageValue = req.getQueryParamValue(&quot;age&quot;);
             string age = ageValue is string ? ageValue : &quot;&quot;;
             wsEp.setAttribute(AGE, age);
@@ -332,7 +332,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>map&lt;http:WebSocketCaller&gt; connectionsMap = {};
+                                    <div class="highlight"><pre><code class=language-ballerina>map&lt;http:WebSocketCaller&gt; connectionsMap = {};
 </code></pre></div>
 
                                 </td>
@@ -351,7 +351,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service chatApp = @http:WebSocketServiceConfig {} service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service chatApp = @http:WebSocketServiceConfig {} service {
 </code></pre></div>
 
                                 </td>
@@ -363,7 +363,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onOpen(http:WebSocketCaller caller) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onOpen(http:WebSocketCaller caller) {
         string msg;
         msg = getAttributeStr(caller, NAME) + &quot; with age &quot;
         + getAttributeStr(caller, AGE) + &quot; connected to chat&quot;;
@@ -389,7 +389,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onText(http:WebSocketCaller caller, string text) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onText(http:WebSocketCaller caller, string text) {
         string msg = getAttributeStr(caller, NAME) + &quot;: &quot; + text;
         log:printInfo(msg);
         broadcast(msg);
@@ -412,7 +412,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onClose(http:WebSocketCaller caller, int statusCode,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onClose(http:WebSocketCaller caller, int statusCode,
     string reason) {
         _ = connectionsMap.remove(caller.getConnectionId());
         string msg = getAttributeStr(caller, NAME) + &quot; left the chat&quot;;
@@ -437,7 +437,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function broadcast(string text) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function broadcast(string text) {
     foreach var con in connectionsMap {
         var err = con-&gt;pushText(text);
         if (err is http:WebSocketError) {
@@ -463,7 +463,7 @@ service chatAppUpgrader on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function getAttributeStr(http:WebSocketCaller ep, string key)
+                                    <div class="highlight"><pre><code class=language-ballerina>function getAttributeStr(http:WebSocketCaller ep, string key)
 returns (string) {
     var name = ep.getAttribute(key);
     return name.toString();

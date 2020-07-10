@@ -183,7 +183,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 </code></pre></div>
 
                                 </td>
@@ -195,7 +195,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type InvalidAccountTypeErrorData record {
+                                    <div class="highlight"><pre><code class=language-ballerina>type InvalidAccountTypeErrorData record {
     string accountType;
 };
 </code></pre></div>
@@ -218,7 +218,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type InvalidAccountTypeError error&lt;InvalidAccountTypeErrorData&gt;;
+                                    <div class="highlight"><pre><code class=language-ballerina>type InvalidAccountTypeError error&lt;InvalidAccountTypeErrorData&gt;;
 </code></pre></div>
 
                                 </td>
@@ -237,7 +237,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function getTypeId(string accountType) returns int|InvalidAccountTypeError {
+                                    <div class="highlight"><pre><code class=language-ballerina>function getTypeId(string accountType) returns int|InvalidAccountTypeError {
     match accountType {
         &quot;checking&quot; =&gt; { return 1; }
         &quot;savings&quot; =&gt; { return 2; }
@@ -253,7 +253,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    return InvalidAccountTypeError(&quot;Invalid account type&quot;, accountType = accountType);
+                                    <div class="highlight"><pre><code class=language-ballerina>    return InvalidAccountTypeError(&quot;Invalid account type&quot;, accountType = accountType);
 }
 </code></pre></div>
 
@@ -277,7 +277,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type AccountErrorData record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type AccountErrorData record {|
     int accountID;
 |};
 </code></pre></div>
@@ -291,7 +291,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type AccountError distinct error&lt;AccountErrorData&gt;;
+                                    <div class="highlight"><pre><code class=language-ballerina>type AccountError distinct error&lt;AccountErrorData&gt;;
 type InvalidAccountIdError distinct AccountError;
 type AccountNotFoundError distinct AccountError;
 </code></pre></div>
@@ -316,7 +316,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function getAccountBalance(int accountID) returns int|AccountError {
+                                    <div class="highlight"><pre><code class=language-ballerina>function getAccountBalance(int accountID) returns int|AccountError {
     if (accountID &lt; 0) {
 </code></pre></div>
 
@@ -329,7 +329,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        return InvalidAccountIdError(&quot;Invalid account Id&quot;, accountID = accountID);
+                                    <div class="highlight"><pre><code class=language-ballerina>        return InvalidAccountIdError(&quot;Invalid account Id&quot;, accountID = accountID);
     } else if (accountID &gt; 100) {
 </code></pre></div>
 
@@ -349,7 +349,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        return AccountNotFoundError(&quot;Account not found&quot;, accountID = accountID);
+                                    <div class="highlight"><pre><code class=language-ballerina>        return AccountNotFoundError(&quot;Account not found&quot;, accountID = accountID);
     }
 </code></pre></div>
 
@@ -369,7 +369,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    return 600;
+                                    <div class="highlight"><pre><code class=language-ballerina>    return 600;
 }
 </code></pre></div>
 
@@ -389,7 +389,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type AccountInquiryFailed error&lt;AccountErrorData&gt;;
+                                    <div class="highlight"><pre><code class=language-ballerina>type AccountInquiryFailed error&lt;AccountErrorData&gt;;
 </code></pre></div>
 
                                 </td>
@@ -401,7 +401,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function transferToAccount(int fromAccountId, int toAccountId, int amount) returns int|AccountInquiryFailed {
+                                    <div class="highlight"><pre><code class=language-ballerina>function transferToAccount(int fromAccountId, int toAccountId, int amount) returns int|AccountInquiryFailed {
     var balance = getAccountBalance(fromAccountId);
     if (balance is error) {
 </code></pre></div>
@@ -415,7 +415,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        return AccountInquiryFailed(&quot;Account inquiry failed&quot;, balance, accountID = fromAccountId);
+                                    <div class="highlight"><pre><code class=language-ballerina>        return AccountInquiryFailed(&quot;Account inquiry failed&quot;, balance, accountID = fromAccountId);
     } else {
 </code></pre></div>
 
@@ -435,7 +435,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    }
+                                    <div class="highlight"><pre><code class=language-ballerina>    }
 </code></pre></div>
 
                                 </td>
@@ -454,7 +454,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    return 0;
+                                    <div class="highlight"><pre><code class=language-ballerina>    return 0;
 }
 </code></pre></div>
 
@@ -467,7 +467,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     int|InvalidAccountTypeError result = getTypeId(&quot;Joined&quot;);
     if (result is int) {
         io:println(&quot;Account type ID: &quot;, result);
@@ -486,7 +486,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var result2 = getAccountBalance(-1);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var result2 = getAccountBalance(-1);
 </code></pre></div>
 
                                 </td>
@@ -498,7 +498,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (result2 is int) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (result2 is int) {
         io:println(&quot;Account Balance: &quot;, result2);
 </code></pre></div>
 
@@ -518,7 +518,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    } else if (result2 is InvalidAccountIdError) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    } else if (result2 is InvalidAccountIdError) {
         io:println(&quot;Invalid account number: Please try again!&quot;);
     } else {
         io:println(&quot;Error: &quot;, result2.message(),
@@ -542,7 +542,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var result3 = transferToAccount(-1, 90, 1000);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var result3 = transferToAccount(-1, 90, 1000);
     if (result3 is int) {
         io:println(&quot;Transfer success: &quot;, result3);
     } else {
@@ -557,7 +557,7 @@ type AccountNotFoundError distinct AccountError;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        io:println(&quot;Error: &quot;, result3.message(),
+                                    <div class="highlight"><pre><code class=language-ballerina>        io:println(&quot;Error: &quot;, result3.message(),
                     &quot;, Cause: &quot;, result3.cause());
     }
 }

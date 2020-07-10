@@ -68,7 +68,7 @@ redirect_from:
                             <p><p>Convenience functions are provided in the HTTP library for ease of use when handling 100-continue scenarios.
  100-continue indicates that the server has received the request headers and the client can proceed with sending the request.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -145,7 +145,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -158,7 +158,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/hello&quot;
 }
 service helloWorld on new http:Listener(9090) {
@@ -173,7 +173,7 @@ service helloWorld on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         path: &quot;/&quot;
     }
     resource function hello(http:Caller caller, http:Request request) {
@@ -188,7 +188,7 @@ service helloWorld on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (request.expects100Continue()) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (request.expects100Continue()) {
             string mediaType = request.getContentType();
             if (mediaType.toLowerAscii() == &quot;text/plain&quot;) {
 </code></pre></div>
@@ -198,7 +198,7 @@ service helloWorld on new http:Listener(9090) {
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p><a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/objects/Request.html#expects100Continue">Check if the client expects a 100-continue response</a>.</p>
+                                            <p><a href="https://ballerina.io/learn/api-docs/ballerina/http/objects/Request.html#expects100Continue">Check if the client expects a 100-continue response</a>.</p>
 
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@ service helloWorld on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                var result = caller-&gt;continue();
+                                    <div class="highlight"><pre><code class=language-ballerina>                var result = caller-&gt;continue();
                 if (result is error) {
                     log:printError(&quot;Error sending response&quot;, result);
                 }
@@ -232,7 +232,7 @@ service helloWorld on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                http:Response res = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>                http:Response res = new;
                 res.statusCode = 417;
                 res.setPayload(&quot;Unprocessable Entity&quot;);
                 var result = caller-&gt;respond(res);
@@ -261,7 +261,7 @@ service helloWorld on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response res = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response res = new;
         var payload = request.getTextPayload();
         if (payload is string) {
             log:printInfo(payload);

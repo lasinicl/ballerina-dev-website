@@ -84,7 +84,7 @@ redirect_from:
                             <p><p>This sample demonstrates how to configure the chunking behavior of an HTTP client endpoint. By default, the HTTP client sends messages with the <code>content-length</code> header.
 If the message size is larger than the buffer size (8K), messages are chunked. Chunking can be disabled using the connector options.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -171,7 +171,7 @@ If the message size is larger than the buffer size (8K), messages are chunked. C
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -184,7 +184,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client clientEndpoint = new (&quot;http://localhost:9090&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client clientEndpoint = new (&quot;http://localhost:9090&quot;,
                                   {http1Settings: {chunking: http:CHUNKING_NEVER}});
 </code></pre></div>
 
@@ -193,12 +193,12 @@ import ballerina/log;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>The HTTP client&rsquo;s chunking behavior can be configured as <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/constants.html#CHUNKING_AUTO">CHUNKING_AUTO</a>,
- <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/constants.html#CHUNKING_ALWAYS">CHUNKING_ALWAYS</a>,
- or <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/constants.html#CHUNKING_NEVER">CHUNKING_NEVER</a>.
+                                            <p>The HTTP client&rsquo;s chunking behavior can be configured as <a href="https://ballerina.io/learn/api-docs/ballerina/http/constants.html#CHUNKING_AUTO">CHUNKING_AUTO</a>,
+ <a href="https://ballerina.io/learn/api-docs/ballerina/http/constants.html#CHUNKING_ALWAYS">CHUNKING_ALWAYS</a>,
+ or <a href="https://ballerina.io/learn/api-docs/ballerina/http/constants.html#CHUNKING_NEVER">CHUNKING_NEVER</a>.
  In this example, it is set to <code>CHUNKING_NEVER</code>, which means that chunking never happens irrespective of how it is
  specified in the request. When chunking is set to <code>CHUNKING_AUTO</code>, chunking is done as specified in the request.
- <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/records/ClientHttp1Settings.html">http1Settings</a> annotation
+ <a href="https://ballerina.io/learn/api-docs/ballerina/http/records/ClientHttp1Settings.html">http1Settings</a> annotation
  provides the chunking-related configurations.</p>
 
                                         </div>
@@ -210,7 +210,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service chunkingSample on new http:Listener(9092) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service chunkingSample on new http:Listener(9092) {
 </code></pre></div>
 
                                 </td>
@@ -222,7 +222,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         path: &quot;/&quot;
     }
     resource function invokeEndpoint(http:Caller caller, http:Request req) {
@@ -237,7 +237,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Request newReq = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Request newReq = new;
         newReq.setPayload({&quot;name&quot;: &quot;Ballerina&quot;});
         var clientResponse = clientEndpoint-&gt;post(&quot;/echo/&quot;, newReq);
         if (clientResponse is http:Response) {
@@ -274,7 +274,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service echo on new http:Listener(9090) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service echo on new http:Listener(9090) {
     @http:ResourceConfig {
         path: &quot;/&quot;
     }
@@ -298,7 +298,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response res = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response res = new;
         boolean validationErrorFound = false;
 </code></pre></div>
 
@@ -311,7 +311,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (req.hasHeader(&quot;content-length&quot;)) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (req.hasHeader(&quot;content-length&quot;)) {
             value = req.getHeader(&quot;content-length&quot;);
             value = &quot;Length-&quot; + value;
         } else if (req.hasHeader(&quot;Transfer-Encoding&quot;)) {
@@ -334,7 +334,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            if (value != &quot;chunked&quot; &amp;&amp; value != &quot;compress&quot; &amp;&amp; value != &quot;deflate&quot;
+                                    <div class="highlight"><pre><code class=language-ballerina>            if (value != &quot;chunked&quot; &amp;&amp; value != &quot;compress&quot; &amp;&amp; value != &quot;deflate&quot;
                 &amp;&amp; value != &quot;gzip&quot; &amp;&amp; value != &quot;identity&quot;) {
                 res.statusCode = 400;
                 res.setPayload(&quot;Transfer-Encoding contains invalid data&quot;);
@@ -362,7 +362,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (!validationErrorFound) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (!validationErrorFound) {
 </code></pre></div>
 
                                 </td>
@@ -374,7 +374,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            res.setPayload({&quot;Outbound request content&quot;: &lt;@untainted&gt;value});
+                                    <div class="highlight"><pre><code class=language-ballerina>            res.setPayload({&quot;Outbound request content&quot;: &lt;@untainted&gt;value});
         }
         var result = caller-&gt;respond(res);
         if (result is error) {
@@ -401,7 +401,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function isValid(boolean|error value) returns boolean {
+                                    <div class="highlight"><pre><code class=language-ballerina>function isValid(boolean|error value) returns boolean {
     if (value is boolean) {
         return value;
     }

@@ -108,7 +108,7 @@ redirect_from:
  The <code>authHandler</code> field is defined inside the <code>auth</code> field with the value
  of it being the reference of the created <code>http:BearerAuthHandler</code>.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/jwt/index.html">JWT module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/jwt/index.html">JWT module</a>.</p>
 </p>
 
                         </td>
@@ -183,7 +183,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/config;
 import ballerina/jwt;
 import ballerina/log;
@@ -198,7 +198,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>jwt:OutboundJwtAuthProvider outboundJwtAuthProvider = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>jwt:OutboundJwtAuthProvider outboundJwtAuthProvider = new ({
     username: &quot;ballerina&quot;,
     issuer: &quot;ballerina&quot;,
     audience: [&quot;ballerina&quot;, &quot;ballerina.org&quot;, &quot;ballerina.io&quot;],
@@ -236,7 +236,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:BearerAuthHandler outboundJwtAuthHandler = new (outboundJwtAuthProvider);
+                                    <div class="highlight"><pre><code class=language-ballerina>http:BearerAuthHandler outboundJwtAuthHandler = new (outboundJwtAuthProvider);
 </code></pre></div>
 
                                 </td>
@@ -255,7 +255,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client httpEndpoint = new (&quot;https://localhost:9090&quot;, {
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client httpEndpoint = new (&quot;https://localhost:9090&quot;, {
     auth: {
         authHandler: outboundJwtAuthHandler
     },
@@ -278,7 +278,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -290,7 +290,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    var response = httpEndpoint-&gt;get(&quot;/hello/sayHello&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var response = httpEndpoint-&gt;get(&quot;/hello/sayHello&quot;);
     if (response is http:Response) {
         var result = response.getTextPayload();
         log:printInfo((result is error) ? &quot;Failed to retrieve payload.&quot; : result);
@@ -398,7 +398,7 @@ INFO  [ballerina/log] - Hello, World!!!
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/config;
 import ballerina/jwt;
 import ballerina/log;
@@ -413,7 +413,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>jwt:InboundJwtAuthProvider inboundJwtAuthProvider = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>jwt:InboundJwtAuthProvider inboundJwtAuthProvider = new ({
     issuer: &quot;ballerina&quot;,
     audience: &quot;ballerina.io&quot;,
     trustStoreConfig: {
@@ -445,7 +445,7 @@ http:BearerAuthHandler inboundJwtAuthHandler = new (inboundJwtAuthProvider);
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener ep = new (9090, config = {
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener ep = new (9090, config = {
     auth: {
         authHandlers: [inboundJwtAuthHandler],
         scopes: [&quot;hello&quot;]
@@ -469,7 +469,7 @@ http:BearerAuthHandler inboundJwtAuthHandler = new (inboundJwtAuthProvider);
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>service hello on ep {
+                                    <div class="highlight"><pre><code class=language-ballerina>service hello on ep {
     resource function sayHello(http:Caller caller, http:Request req) {
         error? result = caller-&gt;respond(&quot;Hello, World!!!&quot;);
         if (result is error) {

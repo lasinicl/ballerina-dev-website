@@ -76,10 +76,10 @@ redirect_from:
  function and the Listener can be started using the <code>start()</code> function.
  The service that is being attached must contain the <code>onTrigger()</code> resource function.
  Additionally, a user can pass a set of <code>any</code> values to the resource using
- the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/task/objects/Scheduler.html#attach"><code>attach()</code></a> function, which then can be used inside the <code>onTrigger()</code>
+ the <a href="https://ballerina.io/learn/api-docs/ballerina/task/objects/Scheduler.html#attach"><code>attach()</code></a> function, which then can be used inside the <code>onTrigger()</code>
  function. The Listener can be stopped by calling the <code>stop()</code> function.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/task/index.html">Task module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/task/index.html">Task module</a>.</p>
 </p>
 
                         </td>
@@ -176,7 +176,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/runtime;
 import ballerina/task;
 </code></pre></div>
@@ -190,7 +190,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public type Person record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>public type Person record {|
     string name;
     int age;
     int maxAge;
@@ -213,7 +213,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -225,7 +225,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int intervalInMillis = 1000;
+                                    <div class="highlight"><pre><code class=language-ballerina>    int intervalInMillis = 1000;
 </code></pre></div>
 
                                 </td>
@@ -244,7 +244,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    task:Scheduler timer = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>    task:Scheduler timer = new ({
         intervalInMillis: intervalInMillis,
         initialDelayInMillis: 0
     });
@@ -267,7 +267,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Person person = {name: &quot;Sam&quot;, age: 0, maxAge: 10};
+                                    <div class="highlight"><pre><code class=language-ballerina>    Person person = {name: &quot;Sam&quot;, age: 0, maxAge: 10};
 </code></pre></div>
 
                                 </td>
@@ -286,7 +286,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var attachResult = timer.attach(service1, person);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var attachResult = timer.attach(service1, person);
     if (attachResult is error) {
         io:println(&quot;Error attaching the service1.&quot;);
         return;
@@ -311,7 +311,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    attachResult = timer.attach(service2, person);
+                                    <div class="highlight"><pre><code class=language-ballerina>    attachResult = timer.attach(service2, person);
     if (attachResult is error) {
         io:println(&quot;Error attaching the service2.&quot;);
         return;
@@ -327,7 +327,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var startResult = timer.start();
+                                    <div class="highlight"><pre><code class=language-ballerina>    var startResult = timer.start();
     if (startResult is error) {
         io:println(&quot;Starting the task is failed.&quot;);
         return;
@@ -350,7 +350,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    while (person.age &lt; person.maxAge) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    while (person.age &lt; person.maxAge) {
 </code></pre></div>
 
                                 </td>
@@ -369,7 +369,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(2000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(2000);
     }
 </code></pre></div>
 
@@ -389,7 +389,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    runtime:sleep(2000);
+                                    <div class="highlight"><pre><code class=language-ballerina>    runtime:sleep(2000);
 </code></pre></div>
 
                                 </td>
@@ -401,7 +401,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var stopResult = timer.stop();
+                                    <div class="highlight"><pre><code class=language-ballerina>    var stopResult = timer.stop();
     if (stopResult is error) {
         io:println(&quot;Stopping the task is failed.&quot;);
         return;
@@ -425,7 +425,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;End.&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;End.&quot;);
 }
 </code></pre></div>
 
@@ -438,7 +438,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service service1 = service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service service1 = service {
 </code></pre></div>
 
                                 </td>
@@ -457,7 +457,7 @@ import ballerina/task;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onTrigger(Person person) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onTrigger(Person person) {
         if (person.age &lt; person.maxAge) {
             person.age = person.age + 1;
             io:println(&quot;Hi &quot; + person.name +
@@ -485,7 +485,7 @@ import ballerina/task;
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>service service2 = service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service service2 = service {
     resource function onTrigger(Person person) {
         if (person.age == 5) {
             io:println(person.name + &quot; started schooling&quot;);

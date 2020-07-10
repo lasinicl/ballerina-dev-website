@@ -85,7 +85,7 @@ redirect_from:
                             <p><p>Ballerina users can configure multiple HTTP clients in a given failover group.
  If one of the HTTP clients (dependencies) fails, Ballerina automatically fails over to another endpoint.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -180,7 +180,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 import ballerina/runtime;
 </code></pre></div>
@@ -194,7 +194,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener backendEP = new (8080);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener backendEP = new (8080);
 </code></pre></div>
 
                                 </td>
@@ -213,7 +213,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:FailoverClient foBackendEP = new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>http:FailoverClient foBackendEP = new ({
 </code></pre></div>
 
                                 </td>
@@ -232,7 +232,7 @@ import ballerina/runtime;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    timeoutInMillis: 5000,
+                                    <div class="highlight"><pre><code class=language-ballerina>    timeoutInMillis: 5000,
     failoverCodes: [501, 502, 503],
     intervalInMillis: 5000,
 </code></pre></div>
@@ -246,7 +246,7 @@ import ballerina/runtime;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    targets: [
+                                    <div class="highlight"><pre><code class=language-ballerina>    targets: [
             {url: &quot;http://nonexistentEP/mock1&quot;},
             {url: &quot;http://localhost:8080/echo&quot;},
             {url: &quot;http://localhost:8080/mock&quot;}
@@ -270,7 +270,7 @@ import ballerina/runtime;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/fo&quot;
 }
 service failoverDemoService on new http:Listener(9090) {
@@ -291,7 +291,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (backendResponse is http:Response) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (backendResponse is http:Response) {
             var responseToCaller = caller-&gt;respond(backendResponse);
             if (responseToCaller is error) {
                 log:printError(&quot;Error sending response&quot;, responseToCaller);
@@ -325,7 +325,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    }
+                                    <div class="highlight"><pre><code class=language-ballerina>    }
 }
 </code></pre></div>
 
@@ -338,7 +338,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/echo&quot;
 }
 </code></pre></div>
@@ -352,7 +352,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service echo on backendEP {
+                                    <div class="highlight"><pre><code class=language-ballerina>service echo on backendEP {
 </code></pre></div>
 
                                 </td>
@@ -371,7 +371,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;POST&quot;, &quot;PUT&quot;, &quot;GET&quot;],
         path: &quot;/&quot;
     }
@@ -387,7 +387,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        runtime:sleep(30000);
+                                    <div class="highlight"><pre><code class=language-ballerina>        runtime:sleep(30000);
 </code></pre></div>
 
                                 </td>
@@ -407,7 +407,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(&quot;echo Resource is invoked&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(&quot;echo Resource is invoked&quot;);
         if (result is error) {
             log:printError(&quot;Error sending response from mock service&quot;, result);
         }
@@ -424,7 +424,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/mock&quot;
 }
 </code></pre></div>
@@ -438,7 +438,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service mock on backendEP {
+                                    <div class="highlight"><pre><code class=language-ballerina>service mock on backendEP {
 </code></pre></div>
 
                                 </td>
@@ -457,7 +457,7 @@ service failoverDemoService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;POST&quot;, &quot;PUT&quot;, &quot;GET&quot;],
         path: &quot;/&quot;
     }

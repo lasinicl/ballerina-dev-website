@@ -65,7 +65,7 @@ redirect_from:
                             <p><p>In this example, the Ballerina HTTP service receives a message over the HTTP/1.1 protocol and forwards it
  to another service over the HTTP/2.0 protocol.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -156,7 +156,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -169,7 +169,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>http:Client http2serviceClientEP = new (&quot;http://localhost:7090&quot;, {httpVersion: &quot;2.0&quot;});
+                                    <div class="highlight"><pre><code class=language-ballerina>http:Client http2serviceClientEP = new (&quot;http://localhost:7090&quot;, {httpVersion: &quot;2.0&quot;});
 </code></pre></div>
 
                                 </td>
@@ -188,7 +188,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/http11Service&quot;
 }
 service http11Service on new http:Listener(9090) {
@@ -203,7 +203,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         path: &quot;/&quot;
     }
     resource function http11Resource(http:Caller caller,
@@ -219,7 +219,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var clientResponse = http2serviceClientEP-&gt;forward(&quot;/http2service&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>        var clientResponse = http2serviceClientEP-&gt;forward(&quot;/http2service&quot;,
                                                         clientRequest);
 </code></pre></div>
 
@@ -228,7 +228,7 @@ service http11Service on new http:Listener(9090) {
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Forward the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/objects/Request.html">clientRequest</a> to the <code>http2</code> service.</p>
+                                            <p>Forward the <a href="https://ballerina.io/learn/api-docs/ballerina/http/objects/Request.html">clientRequest</a> to the <code>http2</code> service.</p>
 
                                         </div>
                                     </div>
@@ -239,7 +239,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response response = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response response = new;
         if (clientResponse is http:Response) {
             response = clientResponse;
         } else {
@@ -254,7 +254,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            response.statusCode = 500;
+                                    <div class="highlight"><pre><code class=language-ballerina>            response.statusCode = 500;
             response.setPayload(clientResponse.message());
         }
 </code></pre></div>
@@ -265,7 +265,7 @@ service http11Service on new http:Listener(9090) {
                                     <div class="cCodeDesription">
                                         <div>
                                             <p>Handle the errors that are returned when invoking the
- <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/clients/HttpClient.html#forward">forward</a> function.</p>
+ <a href="https://ballerina.io/learn/api-docs/ballerina/http/clients/HttpClient.html#forward">forward</a> function.</p>
 
                                         </div>
                                     </div>
@@ -276,7 +276,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(response);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(response);
         if (result is error) {
            log:printError(&quot;Error occurred while sending the response&quot;,
                err = result);
@@ -299,7 +299,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    }
+                                    <div class="highlight"><pre><code class=language-ballerina>    }
 }
 </code></pre></div>
 
@@ -312,7 +312,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener http:Listener http2serviceEP = new (7090,
+                                    <div class="highlight"><pre><code class=language-ballerina>listener http:Listener http2serviceEP = new (7090,
     config = {httpVersion: &quot;2.0&quot;});
 </code></pre></div>
 
@@ -332,7 +332,7 @@ service http11Service on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:ServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:ServiceConfig {
     basePath: &quot;/http2service&quot;
 }
 service http2service on http2serviceEP {
@@ -347,7 +347,7 @@ service http2service on http2serviceEP {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         path: &quot;/&quot;
     }
     resource function http2Resource(http:Caller caller,
@@ -363,7 +363,7 @@ service http2service on http2serviceEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response response = new;
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response response = new;
         json msg = {&quot;response&quot;: {&quot;message&quot;: &quot;response from http2 service&quot;}};
         response.setPayload(msg);
 </code></pre></div>
@@ -384,7 +384,7 @@ service http2service on http2serviceEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>        var result = caller-&gt;respond(response);
+                                    <div class="highlight"><pre><code class=language-ballerina>        var result = caller-&gt;respond(response);
         if (result is error) {
             log:printError(&quot;Error occurred while sending the response&quot;,
                 err = result);

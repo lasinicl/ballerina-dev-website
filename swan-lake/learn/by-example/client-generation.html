@@ -45,7 +45,7 @@ redirect_from:
  Add the <code>@openapi:ClientEndpoint</code> annotation to mark the listener(s) that are used for client generation.
  Add the <code>@openapi:ClientConfig {generate: true}</code> annotation to the service to enable client generation.
  The generated client can be found in the <code>&lt;project.home&gt;/target/bin/client/</code> or <code>&lt;program.dir&gt;/client/</code> directory.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-use-openapi-tools/">Ballerina OpenAPI Tools</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-use-openapi-tools/">Ballerina OpenAPI Tools</a>.</p>
 </p>
 
                         </td>
@@ -116,7 +116,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 import ballerina/openapi;
 </code></pre></div>
@@ -130,7 +130,7 @@ import ballerina/openapi;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@openapi:ClientEndpoint
+                                    <div class="highlight"><pre><code class=language-ballerina>@openapi:ClientEndpoint
 listener http:Listener helloEp = new (9090);
 </code></pre></div>
 
@@ -150,7 +150,7 @@ listener http:Listener helloEp = new (9090);
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@openapi:ClientConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@openapi:ClientConfig {
     generate: true
 }
 @http:ServiceConfig {
@@ -175,7 +175,7 @@ service Hello on helloEp {
                             <tr class="cTR">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    @http:ResourceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>    @http:ResourceConfig {
         methods: [&quot;GET&quot;],
         path: &quot;/hello&quot;
     }

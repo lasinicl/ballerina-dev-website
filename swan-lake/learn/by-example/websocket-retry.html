@@ -125,7 +125,7 @@ redirect_from:
  Ballerina automatically reconnects to the same backend until the connection becomes successful or until
  the maximum reconnect attempts count is reached.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -246,7 +246,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -259,7 +259,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>final string ASSOCIATED_CONNECTION = &quot;ASSOCIATED_CONNECTION&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>final string ASSOCIATED_CONNECTION = &quot;ASSOCIATED_CONNECTION&quot;;
 </code></pre></div>
 
                                 </td>
@@ -271,7 +271,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>const string REMOTE_BACKEND = &quot;ws://localhost:9095/retry/ws&quot;;
+                                    <div class="highlight"><pre><code class=language-ballerina>const string REMOTE_BACKEND = &quot;ws://localhost:9095/retry/ws&quot;;
 </code></pre></div>
 
                                 </td>
@@ -290,7 +290,7 @@ import ballerina/log;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:WebSocketServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:WebSocketServiceConfig {
     path: &quot;/retry/ws&quot;
 }
 service retryProxyService on new http:Listener(9090) {
@@ -305,7 +305,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onOpen(http:WebSocketCaller caller) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onOpen(http:WebSocketCaller caller) {
 </code></pre></div>
 
                                 </td>
@@ -328,7 +328,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketClient wsClientEp = new (
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketClient wsClientEp = new (
         REMOTE_BACKEND,
         {
             callbackService: retryClientService,
@@ -350,7 +350,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            readyOnConnect: false,
+                                    <div class="highlight"><pre><code class=language-ballerina>            readyOnConnect: false,
 </code></pre></div>
 
                                 </td>
@@ -370,7 +370,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>            retryConfig: {
+                                    <div class="highlight"><pre><code class=language-ballerina>            retryConfig: {
 </code></pre></div>
 
                                 </td>
@@ -389,7 +389,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                intervalInMillis: 3000,
+                                    <div class="highlight"><pre><code class=language-ballerina>                intervalInMillis: 3000,
 </code></pre></div>
 
                                 </td>
@@ -408,7 +408,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                maxCount: 20,
+                                    <div class="highlight"><pre><code class=language-ballerina>                maxCount: 20,
 </code></pre></div>
 
                                 </td>
@@ -428,7 +428,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                backOffFactor: 2.0,
+                                    <div class="highlight"><pre><code class=language-ballerina>                backOffFactor: 2.0,
 </code></pre></div>
 
                                 </td>
@@ -447,7 +447,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>                maxWaitIntervalInMillis: 20000
+                                    <div class="highlight"><pre><code class=language-ballerina>                maxWaitIntervalInMillis: 20000
             }
         });
 </code></pre></div>
@@ -471,7 +471,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        wsClientEp.setAttribute(ASSOCIATED_CONNECTION, caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        wsClientEp.setAttribute(ASSOCIATED_CONNECTION, caller);
         caller.setAttribute(ASSOCIATED_CONNECTION, wsClientEp);
 </code></pre></div>
 
@@ -491,7 +491,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        var err = wsClientEp-&gt;ready();
+                                    <div class="highlight"><pre><code class=language-ballerina>        var err = wsClientEp-&gt;ready();
         if (err is http:WebSocketError) {
             log:printError(&quot;Error calling ready on client&quot;, err);
         }
@@ -515,7 +515,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onText(http:WebSocketCaller caller, string text,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onText(http:WebSocketCaller caller, string text,
                                 boolean finalFrame) {
 </code></pre></div>
 
@@ -535,7 +535,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
         var err = clientEp-&gt;pushText(text, finalFrame);
         if (err is http:WebSocketError) {
             log:printError(&quot;Error occurred when sending text message&quot;, err);
@@ -552,7 +552,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onError(http:WebSocketCaller caller, error err) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onError(http:WebSocketCaller caller, error err) {
 </code></pre></div>
 
                                 </td>
@@ -571,7 +571,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
         var e = clientEp-&gt;close(statusCode = 1011, reason = &quot;Unexpected condition&quot;);
         if (e is http:WebSocketError) {
             log:printError(&quot;Error occurred when closing the connection&quot;, e);
@@ -589,7 +589,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onClose(http:WebSocketCaller caller, int statusCode,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onClose(http:WebSocketCaller caller, int statusCode,
                                  string reason) {
 </code></pre></div>
 
@@ -609,7 +609,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketClient clientEp = getAssociatedClientEndpoint(caller);
         var err = clientEp-&gt;close(statusCode = statusCode, reason = reason);
         if (err is http:WebSocketError) {
             log:printError(&quot;Error occurred when closing the connection&quot;, err);
@@ -627,7 +627,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service retryClientService = @http:WebSocketServiceConfig {} service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service retryClientService = @http:WebSocketServiceConfig {} service {
 </code></pre></div>
 
                                 </td>
@@ -646,7 +646,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onText(http:WebSocketClient caller, string text,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onText(http:WebSocketClient caller, string text,
                                 boolean finalFrame) {
 </code></pre></div>
 
@@ -667,7 +667,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
         var err = serverEp-&gt;pushText(text, finalFrame);
         if (err is http:WebSocketError) {
             log:printError(&quot;Error occurred when sending text message&quot;, err);
@@ -684,7 +684,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onError(http:WebSocketClient caller, error err) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onError(http:WebSocketClient caller, error err) {
 </code></pre></div>
 
                                 </td>
@@ -703,7 +703,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
         var e = serverEp-&gt;close(statusCode = 1011, reason = &quot;Unexpected condition&quot;);
         if (e is http:WebSocketError) {
             log:printError(&quot;Error occurred when closing the connection&quot;,
@@ -722,7 +722,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onClose(http:WebSocketClient caller, int statusCode,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onClose(http:WebSocketClient caller, int statusCode,
                                  string reason) {
 </code></pre></div>
 
@@ -743,7 +743,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:WebSocketCaller serverEp = getAssociatedServerEndpoint(caller);
         var err = serverEp-&gt;close(statusCode = statusCode, reason = reason);
         if (err is http:WebSocketError) {
             log:printError(&quot;Error occurred when closing the connection&quot;, err);
@@ -761,7 +761,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function getAssociatedClientEndpoint(http:WebSocketCaller ep)
+                                    <div class="highlight"><pre><code class=language-ballerina>function getAssociatedClientEndpoint(http:WebSocketCaller ep)
                 returns (http:WebSocketClient) {
     http:WebSocketClient wsClient = &lt;http:WebSocketClient&gt;ep.
     getAttribute(ASSOCIATED_CONNECTION);
@@ -785,7 +785,7 @@ service retryProxyService on new http:Listener(9090) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function getAssociatedServerEndpoint(http:WebSocketClient ep)
+                                    <div class="highlight"><pre><code class=language-ballerina>function getAssociatedServerEndpoint(http:WebSocketClient ep)
                 returns (http:WebSocketCaller) {
     http:WebSocketCaller wsEndpoint = &lt;http:WebSocketCaller&gt;ep.
     getAttribute(ASSOCIATED_CONNECTION);
@@ -996,7 +996,7 @@ $ ws.close(1000, &quot;I want to go&quot;);
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 </code></pre></div>
 
@@ -1009,7 +1009,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@http:WebSocketServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@http:WebSocketServiceConfig {
     path: &quot;/retry/ws&quot;
 }
 </code></pre></div>
@@ -1030,7 +1030,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service server on new http:Listener(9095) {
+                                    <div class="highlight"><pre><code class=language-ballerina>service server on new http:Listener(9095) {
 </code></pre></div>
 
                                 </td>
@@ -1049,7 +1049,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onOpen(http:WebSocketCaller caller) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onOpen(http:WebSocketCaller caller) {
         log:printInfo(&quot;WebSocket client connected wih the server. &quot; +
         &quot;The Connection ID: &quot; + caller.getConnectionId());
     }
@@ -1075,7 +1075,7 @@ import ballerina/log;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onText(http:WebSocketCaller caller, string text,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onText(http:WebSocketCaller caller, string text,
                                 boolean finalFrame) {
         var err = caller-&gt;pushText(text, finalFrame);
         if (err is http:WebSocketError) {

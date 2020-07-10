@@ -52,7 +52,7 @@ redirect_from:
                             <p><p>Testerina provides in-built support for data-driven tests.
  You can provide a function pointer as a data-provider. The function returns a
  value-set of data and you can iterate the same test over the returned dataset.<br/><br/>
- For more information, see <a href="https://ballerina.io/swan-lake/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
+ For more information, see <a href="https://ballerina.io/learn/how-to-test-ballerina-code/">How to Test Ballerina Code</a>.</p>
 </p>
 
                         </td>
@@ -135,7 +135,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/test;
 import ballerina/lang.&#39;int;
 </code></pre></div>
@@ -149,7 +149,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {
 </code></pre></div>
 
                                 </td>
@@ -168,7 +168,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    dataProvider: &quot;stringDataProvider&quot;
+                                    <div class="highlight"><pre><code class=language-ballerina>    dataProvider: &quot;stringDataProvider&quot;
 }
 </code></pre></div>
 
@@ -188,7 +188,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function testAddingValues(string fValue, string sValue, string result) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function testAddingValues(string fValue, string sValue, string result) {
 </code></pre></div>
 
                                 </td>
@@ -207,7 +207,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    int|error val1 = &#39;int:fromString(fValue);
+                                    <div class="highlight"><pre><code class=language-ballerina>    int|error val1 = &#39;int:fromString(fValue);
     int value1 = val1 is int ? val1 : 0;
     int|error val2 = &#39;int:fromString(sValue);
     int value2 = val2 is int ? val2 : 0;
@@ -224,7 +224,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Input : [&quot; + fValue + &quot;,&quot; + sValue + &quot;,&quot; + result + &quot;]&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Input : [&quot; + fValue + &quot;,&quot; + sValue + &quot;,&quot; + result + &quot;]&quot;);
     test:assertEquals(value1 + value2, result1, msg = &quot;Incorrect Sum&quot;);
 }
 </code></pre></div>
@@ -238,7 +238,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function stringDataProvider() returns (string[][]) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function stringDataProvider() returns (string[][]) {
     return [[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;], [&quot;10&quot;, &quot;20&quot;, &quot;30&quot;], [&quot;5&quot;, &quot;6&quot;, &quot;11&quot;]];
 }
 </code></pre></div>
@@ -259,7 +259,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@test:Config {
+                                    <div class="highlight"><pre><code class=language-ballerina>@test:Config {
 </code></pre></div>
 
                                 </td>
@@ -271,7 +271,7 @@ import ballerina/lang.&#39;int;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    dataProvider: &quot;jsonDataProvider&quot;
+                                    <div class="highlight"><pre><code class=language-ballerina>    dataProvider: &quot;jsonDataProvider&quot;
 }
 function testJsonObjects(json fValue, json sValue, json result) {
     json a = {&quot;a&quot;: &quot;a&quot;};
@@ -299,7 +299,7 @@ function testJsonObjects(json fValue, json sValue, json result) {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>function jsonDataProvider() returns (json[][]) {
+                                    <div class="highlight"><pre><code class=language-ballerina>function jsonDataProvider() returns (json[][]) {
     return [[{&quot;a&quot;: &quot;a&quot;}, {&quot;b&quot;: &quot;b&quot;}, {&quot;c&quot;: &quot;c&quot;}]];
 }
 </code></pre></div>

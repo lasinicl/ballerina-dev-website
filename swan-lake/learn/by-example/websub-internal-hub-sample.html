@@ -99,7 +99,7 @@ redirect_from:
 <p>In this example, a WebSub Publisher brings up an internal hub and publishes updates to it, and a WebSub Subscriber
  subscribes at the publisher&rsquo;s hub to receive notifications of the updates sent to the topic.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/websub/index.html">WebSub module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/websub/index.html">WebSub module</a>.</p>
 </p>
 
                         </td>
@@ -180,7 +180,7 @@ redirect_from:
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/io;
 import ballerina/runtime;
 import ballerina/websub;
@@ -202,7 +202,7 @@ import ballerina/websub;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -214,7 +214,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Starting up the Ballerina Hub Service&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Starting up the Ballerina Hub Service&quot;);
 </code></pre></div>
 
                                 </td>
@@ -233,7 +233,7 @@ import ballerina/websub;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    websub:Hub webSubHub;
+                                    <div class="highlight"><pre><code class=language-ballerina>    websub:Hub webSubHub;
     var result = websub:startHub(new http:Listener(9191), &quot;/websub&quot;, &quot;/hub&quot;);
     if (result is websub:Hub) {
         webSubHub = result;
@@ -254,7 +254,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var registrationResponse = webSubHub.registerTopic(
+                                    <div class="highlight"><pre><code class=language-ballerina>    var registrationResponse = webSubHub.registerTopic(
                                             &quot;http://websubpubtopic.com&quot;);
     if (registrationResponse is error) {
         io:println(&quot;Error occurred registering topic: &quot; +
@@ -269,7 +269,7 @@ import ballerina/websub;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Registers a topic at the hub using <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/websub/objects/Hub.html#registerTopic">registerTopic</a>.</p>
+                                            <p>Registers a topic at the hub using <a href="https://ballerina.io/learn/api-docs/ballerina/websub/objects/Hub.html#registerTopic">registerTopic</a>.</p>
 
                                         </div>
                                     </div>
@@ -280,7 +280,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    runtime:sleep(5000);
+                                    <div class="highlight"><pre><code class=language-ballerina>    runtime:sleep(5000);
 </code></pre></div>
 
                                 </td>
@@ -299,7 +299,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(&quot;Publishing update to internal Hub&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(&quot;Publishing update to internal Hub&quot;);
     var publishResponse = webSubHub.publishUpdate(&quot;http://websubpubtopic.com&quot;,
         {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;internal-hub&quot;});
 </code></pre></div>
@@ -309,7 +309,7 @@ import ballerina/websub;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Publishes directly to the internal Ballerina hub using <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/websub/objects/Hub.html#publishUpdate">publishUpdate</a>.</p>
+                                            <p>Publishes directly to the internal Ballerina hub using <a href="https://ballerina.io/learn/api-docs/ballerina/websub/objects/Hub.html#publishUpdate">publishUpdate</a>.</p>
 
                                         </div>
                                     </div>
@@ -320,7 +320,7 @@ import ballerina/websub;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    if (publishResponse is error) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    if (publishResponse is error) {
         io:println(&quot;Error notifying hub: &quot; +
                                 publishResponse.message());
     } else {
@@ -337,7 +337,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    runtime:sleep(2000);
+                                    <div class="highlight"><pre><code class=language-ballerina>    runtime:sleep(2000);
 }
 </code></pre></div>
 
@@ -443,7 +443,7 @@ Update notification successful!
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/log;
 import ballerina/websub;
 </code></pre></div>
@@ -464,7 +464,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>listener websub:Listener websubEP = new websub:Listener(8181);
+                                    <div class="highlight"><pre><code class=language-ballerina>listener websub:Listener websubEP = new websub:Listener(8181);
 </code></pre></div>
 
                                 </td>
@@ -483,7 +483,7 @@ import ballerina/websub;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>@websub:SubscriberServiceConfig {
+                                    <div class="highlight"><pre><code class=language-ballerina>@websub:SubscriberServiceConfig {
     path: &quot;/websub&quot;,
     subscribeOnStartUp: true,
     target: [&quot;http://localhost:9191/websub/hub&quot;, &quot;http://websubpubtopic.com&quot;],
@@ -509,7 +509,7 @@ service websubSubscriber on websubEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onIntentVerification(websub:Caller caller,
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onIntentVerification(websub:Caller caller,
                                    websub:IntentVerificationRequest request) {
 </code></pre></div>
 
@@ -531,7 +531,7 @@ service websubSubscriber on websubEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        http:Response response =
+                                    <div class="highlight"><pre><code class=language-ballerina>        http:Response response =
             request.buildSubscriptionVerificationResponse(&quot;http://websubpubtopic.com&quot;);
         if (response.statusCode == 202) {
             log:printInfo(&quot;Intent verified for subscription request&quot;);
@@ -557,7 +557,7 @@ service websubSubscriber on websubEP {
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        if (result is error) {
+                                    <div class="highlight"><pre><code class=language-ballerina>        if (result is error) {
             log:printError(&quot;Error responding to intent verification request&quot;,
                                                     err = result);
         }
@@ -573,7 +573,7 @@ service websubSubscriber on websubEP {
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onNotification(websub:Notification notification) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onNotification(websub:Notification notification) {
         var payload = notification.getTextPayload();
         if (payload is string) {
             log:printInfo(&quot;WebSub Notification Received: &quot; + payload);

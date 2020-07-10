@@ -38,7 +38,7 @@ redirect_from:
                             <h2>Client Endpoint</h2>
                             <p><p>The WebSocket client can be used to connect to and interact with a WebSocket server.<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
+ see the <a href="https://ballerina.io/learn/api-docs/ballerina/http/index.html">HTTP module</a>.</p>
 </p>
 
                         </td>
@@ -117,7 +117,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/http;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/http;
 import ballerina/io;
 </code></pre></div>
 
@@ -130,7 +130,7 @@ import ballerina/io;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
 </code></pre></div>
 
                                 </td>
@@ -142,7 +142,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    http:WebSocketClient wsClientEp = new (&quot;ws://echo.websocket.org&quot;,
+                                    <div class="highlight"><pre><code class=language-ballerina>    http:WebSocketClient wsClientEp = new (&quot;ws://echo.websocket.org&quot;,
                             config = {callbackService: ClientService});
 </code></pre></div>
 
@@ -151,7 +151,7 @@ import ballerina/io;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Creates a new <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/clients/WebSocketClient.html">WebSocket client</a> with the backend URL and assigns a callback service.</p>
+                                            <p>Creates a new <a href="https://ballerina.io/learn/api-docs/ballerina/http/clients/WebSocketClient.html">WebSocket client</a> with the backend URL and assigns a callback service.</p>
 
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    var err = wsClientEp-&gt;pushText(&quot;Hello World!&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    var err = wsClientEp-&gt;pushText(&quot;Hello World!&quot;);
     if (err is error) {
 </code></pre></div>
 
@@ -171,7 +171,7 @@ import ballerina/io;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Pushes a text message to the server using <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/http/clients/WebSocketClient.html#pushText">pushText</a>.</p>
+                                            <p>Pushes a text message to the server using <a href="https://ballerina.io/learn/api-docs/ballerina/http/clients/WebSocketClient.html#pushText">pushText</a>.</p>
 
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>        io:println(err);
+                                    <div class="highlight"><pre><code class=language-ballerina>        io:println(err);
     }
 }
 </code></pre></div>
@@ -203,7 +203,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>service ClientService = @http:WebSocketServiceConfig {} service {
+                                    <div class="highlight"><pre><code class=language-ballerina>service ClientService = @http:WebSocketServiceConfig {} service {
 </code></pre></div>
 
                                 </td>
@@ -222,7 +222,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onText(http:WebSocketClient conn, string text, boolean finalFrame) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onText(http:WebSocketClient conn, string text, boolean finalFrame) {
         io:println(text);
     }
 </code></pre></div>
@@ -243,7 +243,7 @@ import ballerina/io;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    resource function onError(http:WebSocketClient conn, error err) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    resource function onError(http:WebSocketClient conn, error err) {
         io:println(err);
     }
 };

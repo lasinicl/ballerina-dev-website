@@ -140,7 +140,7 @@ redirect_from:
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>import ballerina/io;
+                                    <div class="highlight"><pre><code class=language-ballerina>import ballerina/io;
 import ballerina/lang.&#39;object;
 </code></pre></div>
 
@@ -153,7 +153,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>public function main() {
+                                    <div class="highlight"><pre><code class=language-ballerina>public function main() {
     string name = &quot;Ballerina&quot;;
 </code></pre></div>
 
@@ -166,7 +166,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    &#39;object:RawTemplate template = `Hello ${name}!!!`;
+                                    <div class="highlight"><pre><code class=language-ballerina>    &#39;object:RawTemplate template = `Hello ${name}!!!`;
 </code></pre></div>
 
                                 </td>
@@ -186,7 +186,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(template.strings);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(template.strings);
 </code></pre></div>
 
                                 </td>
@@ -209,7 +209,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(template.insertions[0]);
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(template.insertions[0]);
 </code></pre></div>
 
                                 </td>
@@ -231,7 +231,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Person[] people = [
+                                    <div class="highlight"><pre><code class=language-ballerina>    Person[] people = [
         {name: &quot;John Doe&quot;, age: 25},
         {name: &quot;Jane Doe&quot;, age: 20}
     ];
@@ -246,7 +246,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    Query[] queries = [];
+                                    <div class="highlight"><pre><code class=language-ballerina>    Query[] queries = [];
     int i = 0;
 </code></pre></div>
 
@@ -259,7 +259,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    foreach var p in people {
+                                    <div class="highlight"><pre><code class=language-ballerina>    foreach var p in people {
         queries[i] = `INSERT INTO Details VALUES (${p.name}, ${p.age})`;
         i += 1;
     }
@@ -274,7 +274,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    io:println(buildQuery(queries[0]));
+                                    <div class="highlight"><pre><code class=language-ballerina>    io:println(buildQuery(queries[0]));
     io:println(buildQuery(queries[1]));
 }
 </code></pre></div>
@@ -288,7 +288,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Query abstract object {
+                                    <div class="highlight"><pre><code class=language-ballerina>type Query abstract object {
 </code></pre></div>
 
                                 </td>
@@ -311,7 +311,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>    public string[3] strings;
+                                    <div class="highlight"><pre><code class=language-ballerina>    public string[3] strings;
     public [string, int] insertions;
 };
 </code></pre></div>
@@ -339,7 +339,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>type Person record {|
+                                    <div class="highlight"><pre><code class=language-ballerina>type Person record {|
     string name;
     int age;
 |};
@@ -354,7 +354,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR">
 
                                 <td class="code leading">
-                                    <div class="highlight"><pre><code class=ballerina>function buildQuery(Query qu) returns string {
+                                    <div class="highlight"><pre><code class=language-ballerina>function buildQuery(Query qu) returns string {
 </code></pre></div>
 
                                 </td>
@@ -366,7 +366,7 @@ import ballerina/lang.&#39;object;
                             <tr class="cTR hover-enable">
 
                                 <td class="code">
-                                    <div class="highlight"><pre><code class=ballerina>    return io:sprintf(&quot;%s%s%s%s%s&quot;, qu.strings[0], qu.insertions[0],
+                                    <div class="highlight"><pre><code class=language-ballerina>    return io:sprintf(&quot;%s%s%s%s%s&quot;, qu.strings[0], qu.insertions[0],
                         qu.strings[1], qu.insertions[1], qu.strings[2]);
 }
 </code></pre></div>
